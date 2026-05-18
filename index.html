@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juan Cruz Romero - Desarrollador Front-End. Construyendo webs de alto impacto para negocios en Argentina y Latinoamérica.">
+    <meta name="keywords" content="desarrollador web, front-end, React, WordPress, Argentina, Buenos Aires, landing page, e-commerce">
+    <meta name="author" content="Juan Cruz Romero">
+    <meta property="og:title" content="Juan Cruz Romero | Desarrollador Front-End">
+    <meta property="og:description" content="Elevando la presencia online de negocios con soluciones escalables y vistosas.">
+    <meta property="og:type" content="website">
+    <title>JohnDev | Desarrollador Front-End</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Fondo global fijo (visible en toda la página) -->
+    <div class="global-bg" aria-hidden="true">
+        <div class="g-orb g-orb-1"></div>
+        <div class="g-orb g-orb-2"></div>
+        <div class="g-orb g-orb-3"></div>
+        <div class="g-orb g-orb-4"></div>
+        <div class="g-grid"></div>
+    </div>
+
+    <!-- ==============================
+         NAVIGATION
+    ================================= -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" aria-label="Inicio - Juan Cruz Romero">
+                <img src="images/FotoIcon.png" alt="Juan Cruz Romero" class="nav-logo-img">
+            </a>
+
+            <ul class="nav-links" role="list">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+            </ul>
+
+            <button class="hamburger" id="hamburger"
+                    aria-label="Abrir menú de navegación"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+            <ul role="list">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- ==============================
+        1. HERO SECTION
+    ================================= -->
+    <header id="hero" class="hero s-clear" role="banner">
+        <div class="container hero-container">
+            <!-- Left: Text content -->
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-up" style="--delay: 0s">
+                    <span class="badge-dot" aria-hidden="true"></span>
+                    Disponible para proyectos
+                </div>
+
+                <h1 class="hero-title animate-fade-up" style="--delay: 0.1s">
+                    Desarrollador Front-End. <br>
+                    <span class="gradient-text">Construyendo webs de alto impacto</span>
+                </h1>
+
+                <p class="hero-subtitle animate-fade-up" style="--delay: 0.2s">
+                    Elevando la presencia online de negocios con soluciones escalables y vistosas
+                </p>
+
+                <div class="hero-buttons animate-fade-up" style="--delay: 0.3s">
+                    <a href="https://www.linkedin.com/in/juan-cruz-romero/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-glass"
+                       aria-label="Ver perfil en LinkedIn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+
+                    <a href="https://github.com/johon7nt"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-glass"
+                       aria-label="Ver perfil en GitHub">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+
+                    <a href="https://bit.ly/4dOPMzb"
+                       download
+                       class="btn btn-primary"
+                       aria-label="Descargar Currículum Vitae en PDF">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Descargar CV
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: Photo -->
+            <div class="hero-photo-wrapper animate-fade-left" style="--delay: 0.15s" aria-hidden="true">
+                <div class="hero-photo-glass">
+                    <div class="hero-photo-frame">
+                        <img src="images/FotoPerfil.png" alt="Juan Cruz Romero - Desarrollador Front-End" loading="eager">
+                    </div>
+
+                    <div class="hero-floating-badge badge-top glass-card">
+                        <span>⚡</span>
+                        <div>
+                            <strong>3+</strong>
+                            <small>Años de experiencia</small>
+                        </div>
+                    </div>
+
+                    <div class="hero-floating-badge badge-bottom glass-card">
+                        <span>🚀</span>
+                        <div>
+                            <strong>20+</strong>
+                            <small>Proyectos entregados</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll-hint animate-fade-up" style="--delay: 0.5s" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+
+    <!-- ==============================
+         2. SERVICES SECTION
+    ================================= -->
+    <section id="servicios" class="section s-glass" aria-labelledby="services-title">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Lo que hago</span>
+                <h2 id="services-title" class="section-title">Servicios</h2>
+                <p class="section-subtitle">Soluciones digitales completas para llevar tu negocio al siguiente nivel</p>
+            </div>
+
+            <div class="svc-wrap" id="svc-wrap">
+                <button class="svc-arrow svc-prev" id="svc-prev" aria-label="Servicio anterior">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+
+                <div class="svc-viewport">
+                    <div class="svc-track" id="svc-track">
+
+                        <div class="svc-slide is-active">
+                            <article class="service-card glass-card reveal" aria-label="Desarrollo Web desde cero">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                                </div>
+                                <h3>Desarrollo Web Desde Cero</h3>
+                                <p>Sitios profesionales diseñados a medida para tu negocio, con código limpio y escalable</p>
+                                <div class="tech-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>React</span><span>WordPress</span></div>
+                            </article>
+                        </div>
+
+                        <div class="svc-slide">
+                            <article class="service-card glass-card reveal" aria-label="E-commerce y tiendas online">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                                </div>
+                                <h3>E-commerce</h3>
+                                <p>Tiendas online completas con pasarelas de pago integradas y gestión de inventario</p>
+                                <div class="tech-tags"><span>WordPress</span><span>WooCommerce</span><span>Elementor</span></div>
+                            </article>
+                        </div>
+
+                        <div class="svc-slide">
+                            <article class="service-card glass-card reveal" aria-label="Mantenimiento WordPress">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <h3>Mantenimiento WordPress</h3>
+                                <p>Actualizaciones, optimización de velocidad, seguridad y soporte técnico continuo</p>
+                                <div class="tech-tags"><span>WordPress</span><span>PHP</span></div>
+                            </article>
+                        </div>
+
+                        <div class="svc-slide">
+                            <article class="service-card glass-card reveal" aria-label="Landing Pages de alta conversión">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                                </div>
+                                <h3>Landing Pages</h3>
+                                <p>Páginas de alta conversión para campañas, eventos y lanzamientos de productos</p>
+                                <div class="tech-tags"><span>HTML</span><span>CSS</span><span>JS</span><span>React</span></div>
+                            </article>
+                        </div>
+
+                        <div class="svc-slide">
+                            <article class="service-card glass-card reveal" aria-label="Rediseño de sitios web">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                                </div>
+                                <h3>Rediseño Web</h3>
+                                <p>Modernización de sitios existentes con tecnologías actuales y diseño renovado</p>
+                                <div class="tech-tags"><span>React</span><span>Figma</span><span>Elementor</span></div>
+                            </article>
+                        </div>
+
+                        <div class="svc-slide">
+                            <article class="service-card glass-card reveal service-card-featured" aria-label="Consultoría Digital">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                </div>
+                                <h3>Consultoría Digital</h3>
+                                <p>Asesoramiento estratégico para optimizar tu presencia online y maximizar resultados</p>
+                                <div class="tech-tags"><span>SEO</span><span>Analytics</span></div>
+                            </article>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="svc-arrow svc-next" id="svc-next" aria-label="Servicio siguiente">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div>
+            <div class="svc-dots" id="svc-dots" aria-hidden="true"></div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         TECH STACK SECTION
+    ================================= -->
+    <section id="stack" class="section s-clear" aria-labelledby="stack-title">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Tecnologías</span>
+                <h2 id="stack-title" class="section-title">Stack Tecnológico</h2>
+                <p class="section-subtitle">Herramientas con las que construyo experiencias digitales de calidad</p>
+            </div>
+
+            <div class="stack-grid">
+                <div class="stack-item glass-card reveal">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" width="44" height="44" loading="lazy">
+                    <span>HTML5</span>
+                </div>
+                <div class="stack-item glass-card reveal">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" width="44" height="44" loading="lazy">
+                    <span>CSS3</span>
+                </div>
+                <div class="stack-item glass-card reveal">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" width="44" height="44" loading="lazy">
+                    <span>JavaScript</span>
+                </div>
+                <div class="stack-item glass-card reveal">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" width="44" height="44" loading="lazy">
+                    <span>React</span>
+                </div>
+                <div class="stack-item glass-card reveal">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" alt="" width="44" height="44" loading="lazy" style="filter:invert(1)">
+                    <span>WordPress</span>
+                </div>
+                <div class="stack-item glass-card reveal">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="" width="44" height="44" loading="lazy">
+                    <span>Figma</span>
+                </div>
+                <div class="stack-item glass-card reveal">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" width="44" height="44" loading="lazy">
+                    <span>Git</span>
+                </div>
+                <div class="stack-item glass-card reveal">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" width="44" height="44" loading="lazy" style="filter:invert(1)">
+                    <span>GitHub</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         3. PROJECTS SECTION
+    ================================= -->
+    <section id="proyectos" class="section s-glass" aria-labelledby="projects-title">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Portfolio</span>
+                <h2 id="projects-title" class="section-title">Proyectos Destacados</h2>
+                <p class="section-subtitle">Una selección de trabajos que demuestran mi enfoque y capacidades</p>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card glass-card reveal"
+                         role="button" tabindex="0"
+                         aria-label="Ver detalles: Le Papillon Peluquerías"
+                         data-project="0"
+                         onclick="openModal(0)"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(0)}">
+                    <div class="project-img-wrapper">
+                        <div class="project-img" aria-hidden="true">
+                            <img src="images/CapturaLePapillon.png" alt="Le Papillon Peluquerías" loading="lazy">
+                            <div class="project-overlay">
+                                <span>Ver proyecto &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Le Papillon Peluquerías</h3>
+                        <p>Sitio web para cadena de peluquerías con galería, servicios y reservas</p>
+                        <div class="tech-tags">
+                            <span>WordPress</span><span>Figma</span><span>Elementor</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card reveal"
+                         role="button" tabindex="0"
+                         aria-label="Ver detalles: The Park Estudio"
+                         data-project="1"
+                         onclick="openModal(1)"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(1)}">
+                    <div class="project-img-wrapper">
+                        <div class="project-img" aria-hidden="true">
+                            <img src="images/CapturaThePark.png" alt="The Park Estudio" loading="lazy">
+                            <div class="project-overlay">
+                                <span>Ver proyecto &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>The Park Estudio</h3>
+                        <p>Plataforma web para estudio de danza, orientado a venta de entradas para evento internacional</p>
+                        <div class="tech-tags">
+                            <span>Wordpress</span><span>Elementor</span><span>WooCommerce</span><span>FooEvents</span><span>PHP</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card reveal"
+                         role="button" tabindex="0"
+                         aria-label="Ver detalles: Uno7Street"
+                         data-project="2"
+                         onclick="openModal(2)"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(2)}">
+                    <div class="project-img-wrapper">
+                        <div class="project-img" aria-hidden="true">
+                            <img src="images/CapturaUno7Street.png" alt="Uno7Street" loading="lazy">
+                            <div class="project-overlay">
+                                <span>Ver proyecto &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Uno7Street</h3>
+                        <p>Tienda online de ropa urbana con integración de pago y envío junto a un panel de administración</p>
+                        <div class="tech-tags">
+                            <span>Empretienda</span><span>Figma</span><span>Edición Audiovisual</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card glass-card reveal"
+                         role="button" tabindex="0"
+                         aria-label="Ver detalles: TomixVisuals"
+                         data-project="3"
+                         onclick="openModal(3)"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(3)}">
+                    <div class="project-img-wrapper">
+                        <div class="project-img" aria-hidden="true">
+                            <img src="images/CapturaTomixVisuals.png" alt="TomixVisuals" loading="lazy">
+                            <div class="project-overlay">
+                                <span>Ver proyecto &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>TomixVisuals</h3>
+                        <p>Página para agencia de marketing digital de alto impacto y estética</p>
+                        <div class="tech-tags">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Figma</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         4. FAQ SECTION
+    ================================= -->
+    <section id="faq" class="section s-clear" aria-labelledby="faq-title">
+        <div class="container faq-container">
+            <div class="section-header reveal">
+                <span class="section-tag">Preguntas</span>
+                <h2 id="faq-title" class="section-title">Preguntas Frecuentes</h2>
+                <p class="section-subtitle">Todo lo que necesitás saber antes de comenzar</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item glass-card reveal">
+                    <button class="faq-btn" aria-expanded="false" aria-controls="faq-1">
+                        <span>¿Cuánto tiempo tarda un proyecto?</span>
+                        <div class="faq-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-1">
+                        <p>Depende del alcance. Una <strong>landing page</strong>: 2-3 semanas. Un <strong>sitio web completo</strong>: 3-5 semanas. Un <strong>e-commerce completo</strong>: 4-8 semanas. Siempre defino plazos claros antes de comenzar para que puedas planificar tu lanzamiento.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card reveal">
+                    <button class="faq-btn" aria-expanded="false" aria-controls="faq-2">
+                        <span>¿Trabajás con clientes fuera de Buenos Aires?</span>
+                        <div class="faq-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-2">
+                        <p>Sí, trabajo <strong>100% remoto</strong> con clientes de toda Argentina y Latinoamérica. Las reuniones se realizan por videollamada y mantengo comunicación fluida por WhatsApp o email durante todo el proceso.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card reveal">
+                    <button class="faq-btn" aria-expanded="false" aria-controls="faq-3">
+                        <span>¿Ofrecés mantenimiento después del lanzamiento?</span>
+                        <div class="faq-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-3">
+                        <p>Sí. Ofrezco <strong>planes de mantenimiento mensual</strong> que incluyen actualizaciones, backups, monitoreo de seguridad y pequeños ajustes de contenido. También disponible soporte puntual por hora si lo preferís.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card reveal">
+                    <button class="faq-btn" aria-expanded="false" aria-controls="faq-4">
+                        <span>¿Cuál es el presupuesto aproximado?</span>
+                        <div class="faq-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-4">
+                        <p><strong>Landing pages</strong> desde $150,000 ARS. <strong>Sitios web completos</strong> desde $300,000 ARS. <strong>E-commerce</strong> desde $600,000 ARS. Cada proyecto recibe un presupuesto detallado y sin sorpresas antes de comenzar.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass-card reveal">
+                    <button class="faq-btn" aria-expanded="false" aria-controls="faq-5">
+                        <span>¿También te encargás del diseño visual?</span>
+                        <div class="faq-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-5">
+                        <p>Sí, ofrezco una <strong>solución integral</strong>; Puedo encargarme de la edición de video, imágenes y diseño de marca para asegurar que tu web tenga una identidad visual coherente. Al ser servicios que requieren una producción adicional al desarrollo web, su inclusión se verá reflejada en el presupuesto final según la cantidad y complejidad del material.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         5. ABOUT SECTION
+    ================================= -->
+    <section id="sobre-mi" class="section s-glass about-section" aria-labelledby="about-title">
+        <div class="container about-grid">
+            <div class="about-image reveal">
+                <div class="about-photo-glass">
+                    <img src="images/FotoAboutMe.png" alt="Juan Cruz Romero" loading="lazy" class="about-photo-img">
+                    <div class="about-decoration" aria-hidden="true"></div>
+                </div>
+            </div>
+
+            <div class="about-content reveal">
+                <span class="section-tag">Sobre Mí</span>
+                <h2 id="about-title" class="section-title align-left">Quién Soy</h2>
+
+                <p class="about-text">
+                    Soy <strong>Juan Cruz Romero</strong>, desarrollador web especializado en crear
+                    experiencias digitales que convierten visitantes en clientes.
+                </p>
+                <p class="about-text">
+                    Con experiencia en WordPress, React y tecnologías modernas, ayudo a negocios
+                    locales y emprendedores a establecer su presencia online de forma
+                    <strong>profesional y escalable</strong>.
+                </p>
+                <p class="about-text">
+                    He trabajado con estudios de danza, salones de belleza, marcas de ropa y más,
+                    siempre priorizando la <strong>experiencia del usuario</strong> y los resultados medibles.
+                </p>
+
+                <img src="images/CapturaAboutMe.png" alt="Juan Cruz Romero" loading="lazy" class="about-photo-mobile">
+
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <span class="stat-number counter" data-target="20">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Proyectos</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="stat-number counter" data-target="3">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Años de exp.</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="stat-number counter" data-target="100">0</span><span class="stat-suffix">%</span>
+                        <span class="stat-label">Satisfacción</span>
+                    </div>
+                </div>
+
+                <a href="#contacto" class="btn btn-primary">
+                    Trabajemos juntos
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         CTA SECTION
+    ================================= -->
+    <section class="section s-clear cta-section" aria-label="Call to action">
+        <div class="container">
+            <div class="cta-card reveal">
+                <!-- Partículas decorativas -->
+                <span class="cta-dot" style="top:18%;left:8%"  aria-hidden="true"></span>
+                <span class="cta-dot" style="top:12%;left:62%" aria-hidden="true"></span>
+                <span class="cta-dot" style="top:72%;left:22%" aria-hidden="true"></span>
+                <span class="cta-dot" style="top:60%;left:82%" aria-hidden="true"></span>
+                <span class="cta-dot" style="top:35%;left:92%" aria-hidden="true"></span>
+                <span class="cta-dot" style="top:80%;left:55%" aria-hidden="true"></span>
+
+                <div class="cta-content">
+                    <span class="cta-pill">¿Listo para empezar?</span>
+                    <h2 class="cta-title">Tu próxima web puede <span class="gradient-text">impresionar así</span></h2>
+                    <p class="cta-subtitle">Trabajemos juntos para crear una presencia digital que convierta visitantes en clientes reales.</p>
+                    <a href="#contacto" class="btn btn-primary cta-btn">
+                        Quiero mi web
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         6. CONTACT SECTION
+    ================================= -->
+    <section id="contacto" class="section s-glass contact-section" aria-labelledby="contact-title">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Contacto</span>
+                <h2 id="contact-title" class="section-title">Hablemos de tu Proyecto</h2>
+                <p class="section-subtitle">Contame sobre tu idea y te respondo en menos de 24 horas</p>
+            </div>
+
+            <div class="contact-layout">
+                <form class="contact-form glass-card reveal"
+                      id="contact-form"
+                      action="https://formsubmit.co/ajax/jcruzromero2003@gmail.com"
+                      method="POST"
+                      novalidate
+                      aria-label="Formulario de contacto">
+                    <!-- Formsubmit config -->
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde tu portfolio">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" aria-hidden="true">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre <span class="required" aria-hidden="true">*</span></label>
+                            <input type="text" id="name" name="name"
+                                   placeholder="Tu nombre completo"
+                                   required autocomplete="name"
+                                   aria-required="true" aria-describedby="name-err">
+                            <span class="form-error" id="name-err" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email"
+                                   placeholder="tu@email.com"
+                                   required autocomplete="email"
+                                   aria-required="true" aria-describedby="email-err">
+                            <span class="form-error" id="email-err" role="alert"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa">Empresa / Proyecto <span class="optional">(opcional)</span></label>
+                        <input type="text" id="empresa" name="empresa"
+                               placeholder="Nombre de tu empresa o proyecto"
+                               autocomplete="organization">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje <span class="required" aria-hidden="true">*</span></label>
+                        <textarea id="mensaje" name="mensaje"
+                                  placeholder="Contame sobre tu proyecto: ¿qué tipo de sitio necesitás? ¿cuándo querés lanzar?"
+                                  rows="5" required
+                                  aria-required="true" aria-describedby="mensaje-err"></textarea>
+                        <span class="form-error" id="mensaje-err" role="alert"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+                        <span class="btn-text">Enviar Mensaje</span>
+                        <svg class="btn-icon-send" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                        <span class="btn-spinner" aria-hidden="true"></span>
+                    </button>
+
+                    <div class="form-success" id="form-success" role="alert" aria-live="polite" hidden>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <p>¡Mensaje enviado! Te respondo en menos de 24 horas.</p>
+                    </div>
+                </form>
+
+                <div class="contact-info reveal">
+                    <div class="glass-card contact-info-card">
+                        <h3>¿Preferís hablar directo?</h3>
+                        <div class="contact-links">
+                            <a href="https://wa.me/541124909925" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="WhatsApp">
+                                <div class="contact-link-icon whatsapp-icon" aria-hidden="true">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-link-text">
+                                    <span>WhatsApp</span>
+                                    <small>+54 11 2490-9925</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card contact-availability">
+                        <div class="availability-dot" aria-hidden="true"></div>
+                        <div>
+                            <strong>Disponible para proyectos</strong>
+                            <p>Tiempo de respuesta promedio: &lt; 24hs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==============================
+         7. FOOTER
+    ================================= -->
+    <footer class="footer s-glass" role="contentinfo">
+        <div class="container footer-inner">
+            <a href="#hero" class="footer-logo" aria-label="Volver al inicio">
+                <img src="images/FotoIcon.png" alt="Juan Cruz Romero" class="footer-logo-img">
+            </a>
+            <p class="footer-copy">&copy; 2026 JuanCruzRomero. All rights reserved.</p>
+            <div class="footer-socials" aria-label="Redes sociales">
+                <a href="https://linkedin.com/in/juancruzromero" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/john_7nt/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/juancruzromero" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ==============================
+         PROJECT MODAL
+    ================================= -->
+    <div class="modal-overlay" id="modal-overlay"
+         role="dialog" aria-modal="true"
+         aria-labelledby="modal-title"
+         aria-hidden="true">
+        <div class="modal-box glass-card">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+
+            <div class="modal-img-wrapper">
+                <div class="modal-img" id="modal-img" aria-hidden="true"></div>
+            </div>
+
+            <div class="modal-content">
+                <h3 class="modal-title" id="modal-title"></h3>
+                <p class="modal-desc" id="modal-desc"></p>
+                <div class="tech-tags modal-tags" id="modal-tags"></div>
+
+                <div class="modal-detail">
+                    <h4>Desafíos &amp; Soluciones</h4>
+                    <p id="modal-challenges"></p>
+                </div>
+
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary" id="modal-live" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                        Ver Proyecto Live
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
