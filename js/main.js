@@ -253,14 +253,14 @@ function trapFocus(e) {
             const clone = origSlides[TOTAL - BUFFER + i].cloneNode(true);
             clone.classList.add('svc-clone');
             clone.classList.remove('is-active');
-            clone.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+            clone.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
             track.insertBefore(clone, track.firstElementChild);
         }
         for (let i = 0; i < BUFFER; i++) {
             const clone = origSlides[i].cloneNode(true);
             clone.classList.add('svc-clone');
             clone.classList.remove('is-active');
-            clone.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+            clone.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
             track.appendChild(clone);
         }
     })();

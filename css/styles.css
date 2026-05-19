@@ -82,6 +82,7 @@ body {
     border-radius: 50%;
     filter: blur(100px);
     animation: float 12s ease-in-out infinite;
+    will-change: transform;
 }
 
 /* Distribuidos por toda la viewport para ser visibles en cualquier punto del scroll */
@@ -1617,6 +1618,19 @@ ul {
    RESPONSIVE — Tablet
    ================================================ */
 @media (max-width: 1024px) {
+    /* Orbs más pequeños en tablet */
+    .g-orb { filter: blur(80px); }
+    .g-orb-1 { width: 520px; height: 520px; }
+    .g-orb-2 { width: 460px; height: 460px; }
+    .g-orb-3 { width: 360px; height: 360px; }
+    .g-orb-4 { width: 400px; height: 400px; }
+
+    /* Reducir backdrop-filter en tablet */
+    .glass-card {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
     .hero-container {
         gap: 40px;
     }
@@ -1705,6 +1719,40 @@ ul {
    RESPONSIVE — Mobile
    ================================================ */
 @media (max-width: 768px) {
+    /* ── Performance: reducir carga GPU en mobile ── */
+
+    /* Orbs: pausar animación (mayor ahorro CPU/GPU) y reducir tamaño */
+    .g-orb {
+        animation-play-state: paused;
+        filter: blur(60px);
+    }
+    .g-orb-1 { width: 280px; height: 280px; }
+    .g-orb-2 { width: 260px; height: 260px; }
+    .g-orb-3 { width: 200px; height: 200px; }
+    .g-orb-4 { width: 240px; height: 240px; }
+
+    /* Reducir backdrop-filter en secciones y cards */
+    .s-glass {
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+    .glass-card {
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+    .navbar.scrolled {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .mobile-menu {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .modal-overlay {
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
     /* Nav */
     .nav-links { display: none; }
     .hamburger { display: flex; }
