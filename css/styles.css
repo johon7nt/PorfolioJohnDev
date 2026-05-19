@@ -1036,7 +1036,7 @@ ul {
     aspect-ratio: 4/5;
     border-radius: var(--radius-xl);
     object-fit: cover;
-    object-position: center top;
+    object-position: center 25%;
     border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-lg);
     display: block;
@@ -1085,6 +1085,13 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.stat-value {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    line-height: 1;
 }
 
 .stat-number {
