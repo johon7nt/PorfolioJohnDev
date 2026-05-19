@@ -1015,7 +1015,7 @@ ul {
 .about-grid {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 16px;
+    gap: 50px;
     align-items: center;
 }
 
@@ -1066,10 +1066,10 @@ ul {
 }
 
 .about-stats {
-    display: flex;
+    display: inline-flex;
     gap: 32px;
     margin: 32px 0;
-    padding: 24px;
+    padding: 24px 32px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
