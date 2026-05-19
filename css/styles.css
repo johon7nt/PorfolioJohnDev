@@ -1592,10 +1592,13 @@ ul {
 
 .modal-detail {
     margin: 20px 0;
-    padding: 18px;
+    padding: 20px;
     background: var(--glass-bg);
     border-radius: var(--radius-md);
     border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .modal-detail h4 {
@@ -1604,13 +1607,54 @@ ul {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--accent);
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 }
 
-.modal-detail p {
+.ch-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ch-block + .ch-block {
+    padding-top: 18px;
+    border-top: 1px solid var(--glass-border);
+}
+
+.ch-block-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.ch-block-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: linear-gradient(180deg, #007AFF, #5E5CE6);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.ch-block p {
     font-size: 0.88rem;
     color: var(--text-muted);
-    line-height: 1.7;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.ch-mark {
+    background: linear-gradient(135deg, #007AFF 0%, #5E5CE6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
 }
 
 .modal-actions {

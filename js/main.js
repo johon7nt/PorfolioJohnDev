@@ -13,8 +13,15 @@ const PROJECTS = [
             'Un proyecto enfocado en trasladar la sofisticación del salón al entorno digital. Diseñado en Figma y desarrollado en WordPress + Elementor Pro, logramos una interfaz minimalista de estética refinada. La paleta de tonos pastel y la tipografía fina reflejan la elegancia y el cuidado al detalle que definen a la marca.',
         tags: ['WordPress', 'Figma', 'Elementor'],
         imgSrc: 'images/CapturaLePapillon.png',
-        challenges:
-            'Le Papillon consistió en crear una presencia online que estuviera a la altura de su servicio premium. El objetivo era claro: una web que no solo informara, sino que hiciera sentir al usuario la atmósfera del salón antes de visitarlo. Diseño y Concepto: Utilicé Figma para prototipar una experiencia de usuario fluida, priorizando los espacios en blanco y una jerarquía visual clara. La dirección de arte se centró en un enfoque minimalista, utilizando una paleta de tonos pastel y líneas finas que aportan una sensación de calma y profesionalismo. Implementación Técnica: El desarrollo se realizó sobre WordPress, utilizando Elementor Pro para lograr una personalización total del diseño sin sacrificar el rendimiento. El resultado es un sitio visualmente impactante, totalmente responsive y fácil de gestionar para el cliente, permitiendo que la marca mantenga su comunicación actualizada con facilidad.',
+        challenges: `
+            <div class="ch-block">
+                <p class="ch-block-title">Diseño &amp; Concepto</p>
+                <p>El objetivo era trasladar la <strong class="ch-mark">sofisticación del salón</strong> al mundo digital. Usé <strong class="ch-mark">Figma</strong> para prototipar una experiencia fluida, priorizando los espacios en blanco y una jerarquía visual clara. La dirección de arte giró en torno a un enfoque <strong class="ch-mark">minimalista</strong>: tonos pastel y líneas finas que transmiten calma y elegancia desde el primer scroll.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Implementación Técnica</p>
+                <p>El desarrollo sobre <strong class="ch-mark">WordPress + Elementor Pro</strong> permitió una personalización total sin sacrificar el rendimiento. El resultado es un sitio <strong class="ch-mark">totalmente responsive</strong> y fácil de gestionar, para que el cliente mantenga su comunicación actualizada de forma completamente autónoma.</p>
+            </div>`,
         live: 'https://lepapillonpeluquerias.com/',
     },
     {
@@ -23,8 +30,15 @@ const PROJECTS = [
             'Un desarrollo con una estética urbana y disruptiva, donde el negro y el verde eléctrico dominan la escena. Implementé una solución robusta utilizando WordPress, WooCommerce y FooEvents, permitiendo la gestión técnica de clases y eventos en tiempo real. Un sitio que refleja la fuerza y la rebeldía del estudio con un rendimiento optimizado.',
         tags: ['Wordpress', 'Elementor', 'WooCommerce', 'FooEvents', 'PHP'],
         imgSrc: 'images/CapturaThePark.png',
-        challenges:
-            'Para The Park, el objetivo no era solo diseñar una web, sino construir una plataforma operativa para un estudio de danza de alta performance. El concepto visual rompe con lo tradicional, utilizando una paleta de negros profundos y verdes vibrantes para transmitir esa esencia rebelde y urbana que caracteriza a sus bailarines. Diseño y Concepto: > La interfaz fue diseñada para impactar desde el primer segundo. Utilicé tipografías con peso y contrastes altos para evocar fuerza. Cada sección fue pensada para guiar al usuario desde la inspiración visual hasta la acción directa, manteniendo siempre una estética "street" y profesional. Implementación Técnica: > Este proyecto demandó una arquitectura compleja. Integré WooCommerce con FooEvents para automatizar la venta de pases y la reserva de clases, asegurando un flujo de checkout impecable. Además, utilicé PHP para realizar ajustes a medida en las funcionalidades del core, logrando una herramienta que no solo se ve potente, sino que gestiona el negocio de forma eficiente y escalable.',
+        challenges: `
+            <div class="ch-block">
+                <p class="ch-block-title">Concepto Visual</p>
+                <p>No era solo diseñar una web, sino construir una <strong class="ch-mark">plataforma de alta performance</strong> para un estudio de danza. La paleta de <strong class="ch-mark">negros profundos y verdes vibrantes</strong> rompe con lo tradicional, evocando la energía rebelde y urbana que define a sus bailarines. Tipografías de alto contraste y composiciones que guían al usuario desde la inspiración hasta la acción.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Arquitectura Técnica</p>
+                <p>Este proyecto exigió una integración compleja: <strong class="ch-mark">WooCommerce + FooEvents</strong> para automatizar la venta de pases y reserva de clases con un checkout impecable. Sumé <strong class="ch-mark">PHP a medida</strong> para extender las funcionalidades del core, logrando una herramienta que no solo impacta visualmente, sino que gestiona el negocio de forma eficiente y escalable.</p>
+            </div>`,
         live: 'https://estudiothepark.com/',
     },
     {
@@ -33,8 +47,15 @@ const PROJECTS = [
             'Un proyecto de identidad visual pura. Configuré la tienda online sobre la plataforma Empretienda, centrando el impacto en una estética GRUNGE, urbana y rebelde. Me encargué íntegramente de la edición del producto y el diseño del banner principal, logrando una coherencia visual que respira la esencia "street" de la marca.',
         tags: ['Empretienda', 'Figma', 'Edición Audiovisual'],
         imgSrc: 'images/CapturaUno7Street.png',
-        challenges:
-            'Para Uno7Street, el desafío fue transformar una tienda online estándar en una experiencia de marca auténtica. Al ser una marca de indumentaria urbana, la clave no estaba solo en la funcionalidad, sino en transmitir una actitud rebelde y un estilo GRUNGE que conecte con su audiencia. Producción Visual: Mi rol fue integral. Realicé la edición de producto, buscando ángulos y contrastes que resaltaran las texturas y el diseño de las prendas. También diseñé el banner principal, actuando como la pieza central de comunicación que establece el tono visual desde el primer segundo. Implementación en Empretienda: Utilicé la plataforma Empretienda como base, optimizando cada recurso visual para que el sitio cargue rápido sin perder calidad. Este proyecto demuestra mi capacidad para manejar la identidad visual de punta a punta, asegurando que la tecnología y la imagen trabajen juntas para potenciar el negocio.',
+        challenges: `
+            <div class="ch-block">
+                <p class="ch-block-title">Producción Visual</p>
+                <p>El desafío fue transformar una tienda estándar en una <strong class="ch-mark">experiencia de marca auténtica</strong>. Mi rol fue integral: edición de producto buscando ángulos y contrastes que resalten texturas y diseño de prendas, más el <strong class="ch-mark">banner principal</strong> como pieza central que establece el tono visual GRUNGE desde el primer segundo.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Plataforma &amp; Optimización</p>
+                <p>Trabajé sobre <strong class="ch-mark">Empretienda</strong> optimizando cada recurso visual para que el sitio cargue rápido sin perder calidad ni impacto estético. Un proyecto que demuestra que <strong class="ch-mark">tecnología e identidad visual</strong> pueden trabajar juntas para potenciar un negocio de punta a punta.</p>
+            </div>`,
         live: 'https://uno7street.empretienda.com.ar/',
     },
     {
@@ -43,8 +64,15 @@ const PROJECTS = [
             'Mi mayor desafío técnico y creativo hasta la fecha. Una plataforma desarrollada con React que lleva el diseño minimalista al siguiente nivel. Logré una experiencia sumamente balanceada, fusionando una estética elegante con una navegación intuitiva que puso a prueba mis límites en lógica de componentes y precisión visual.',
         tags: ['HTML', 'CSS', 'JavaScript', 'React', 'Figma'],
         imgSrc: 'images/CapturaTomixVisuals.png',
-        challenges:
-            'Tomix Visuals no fue solo un encargo, fue un laboratorio personal de experimentación. Este proyecto representa la culminación de un proceso intenso donde el objetivo era lograr un balance absoluto entre el impacto visual y la usabilidad intuitiva. El Desafío Técnico: Fue el proyecto que puso al límite mis conocimientos. Utilicé React para construir una arquitectura modular que permitiera transiciones suaves y una interactividad fluida. Cada línea de CSS y cada función de JS fue escrita con el propósito de mantener la elegancia sin comprometer el rendimiento, enfrentando retos de maquetación que exigieron una precisión de píxel. Filosofía de Diseño: Prototipado en Figma, el sitio sigue una línea minimalista donde "menos es más". El resultado es una experiencia de usuario donde la estética sofisticada guía al visitante de forma natural, demostrando que la complejidad técnica puede traducirse en una interfaz simple, potente y equilibrada.',
+        challenges: `
+            <div class="ch-block">
+                <p class="ch-block-title">El Desafío Técnico</p>
+                <p>Fue el proyecto que puso al límite mis conocimientos. Usé <strong class="ch-mark">React</strong> para construir una arquitectura modular con transiciones suaves e interactividad fluida. Cada línea de CSS y cada función JS fue escrita para mantener la <strong class="ch-mark">elegancia sin comprometer el rendimiento</strong>, enfrentando retos de maquetación que exigieron precisión de píxel.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Filosofía de Diseño</p>
+                <p>Prototipado en <strong class="ch-mark">Figma</strong>, el sitio sigue una línea minimalista donde <em>"menos es más"</em>. El resultado es una experiencia donde la <strong class="ch-mark">estética sofisticada</strong> guía al visitante de forma natural, demostrando que la complejidad técnica puede traducirse en una interfaz simple, potente y equilibrada.</p>
+            </div>`,
         live: 'https://tomixvisuals.vercel.app/',
     },
 ];
@@ -167,7 +195,7 @@ window.openModal = function openModal(index) {
     modalImg.style.backgroundPosition = 'center top';
     modalTitle.textContent = project.title;
     modalDesc.textContent = project.description;
-    modalChall.textContent = project.challenges;
+    modalChall.innerHTML = project.challenges;
 
     modalTags.innerHTML = project.tags
         .map((t) => `<span>${t}</span>`)
