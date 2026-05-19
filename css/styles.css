@@ -1692,6 +1692,11 @@ ul {
         gap: 48px;
     }
 
+    /* Ocultar columna izquierda en tablet — la foto va dentro del contenido */
+    .about-image {
+        display: none;
+    }
+
     .about-photo-mobile {
         display: block;
         width: 100%;
