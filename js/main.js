@@ -446,7 +446,7 @@ function trapFocus(e) {
 
             const json = await response.json();
 
-            if (response.ok && json.success === 'true') {
+            if (response.ok && json.success) {
                 form.reset();
                 if (success) {
                     success.removeAttribute('hidden');
