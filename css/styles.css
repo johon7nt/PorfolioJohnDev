@@ -1014,8 +1014,8 @@ ul {
    ================================================ */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
     align-items: center;
 }
 
