@@ -1017,6 +1017,11 @@ ul {
     grid-template-columns: auto 1fr;
     gap: 50px;
     align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(16px, 2vw, 40px);
+    padding-right: clamp(16px, 2vw, 40px);
 }
 
 .about-photo-glass {
@@ -1066,7 +1071,8 @@ ul {
 }
 
 .about-stats {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     gap: 32px;
     margin: 32px 0;
     padding: 24px 32px;
