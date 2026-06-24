@@ -658,6 +658,8 @@ ul {
     flex: 1;
     min-width: 0;
     overflow: hidden;
+    padding-top: 10px;
+    margin-top: -10px;
 }
 
 .svc-track {
@@ -741,6 +743,14 @@ ul {
 
 .service-card.service-card-featured:hover {
     box-shadow: var(--shadow-glow);
+}
+
+.service-icon svg {
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover .service-icon svg {
+    transform: scale(1.2) rotate(-8deg);
 }
 
 .service-icon {
@@ -1990,6 +2000,11 @@ ul {
 
     .about-stat { align-items: center; }
 
+    .about-buttons {
+        justify-content: center;
+        width: 100%;
+    }
+
     /* Contacto */
     .form-row {
         grid-template-columns: 1fr;
@@ -2037,7 +2052,6 @@ ul {
     }
 
     .form-group textarea {
-        rows: 4;
         min-height: 90px;
     }
 
