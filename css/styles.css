@@ -1074,11 +1074,18 @@ ul {
     display: flex;
     width: fit-content;
     gap: 32px;
-    margin: 32px 0;
+    margin: 32px 0 24px;
     padding: 24px 32px;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
+}
+
+.about-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
 }
 
 .about-stat {
