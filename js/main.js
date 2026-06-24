@@ -9,8 +9,9 @@
 const PROJECTS = [
     {
         title: 'Le Papillon Peluquerías',
-        description:
-            'Un proyecto enfocado en trasladar la sofisticación del salón al entorno digital. Diseñado en Figma y desarrollado en WordPress + Elementor Pro, logramos una interfaz minimalista de estética refinada. La paleta de tonos pastel y la tipografía fina reflejan la elegancia y el cuidado al detalle que definen a la marca.',
+        title_en: 'Le Papillon Hair Salon',
+        description: 'Un proyecto enfocado en trasladar la sofisticación del salón al entorno digital. Diseñado en Figma y desarrollado en WordPress + Elementor Pro, logramos una interfaz minimalista de estética refinada. La paleta de tonos pastel y la tipografía fina reflejan la elegancia y el cuidado al detalle que definen a la marca.',
+        description_en: 'A project focused on bringing the salon\'s sophistication to the digital world. Designed in Figma and built with WordPress + Elementor Pro, we achieved a minimalist interface with a refined aesthetic. The pastel palette and fine typography reflect the elegance and attention to detail that define the brand.',
         tags: ['WordPress', 'Figma', 'Elementor'],
         imgSrc: 'images/CapturaLePapillon.png',
         challenges: `
@@ -22,12 +23,22 @@ const PROJECTS = [
                 <p class="ch-block-title">Implementación Técnica</p>
                 <p>El desarrollo sobre <strong class="ch-mark">WordPress + Elementor Pro</strong> permitió una personalización total sin sacrificar el rendimiento. El resultado es un sitio <strong class="ch-mark">totalmente responsive</strong> y fácil de gestionar, para que el cliente mantenga su comunicación actualizada de forma completamente autónoma.</p>
             </div>`,
+        challenges_en: `
+            <div class="ch-block">
+                <p class="ch-block-title">Design &amp; Concept</p>
+                <p>The goal was to bring the <strong class="ch-mark">salon's sophistication</strong> to the digital world. I used <strong class="ch-mark">Figma</strong> to prototype a fluid experience, prioritizing white space and a clear visual hierarchy. The art direction centered on a <strong class="ch-mark">minimalist</strong> approach: pastel tones and fine lines that convey calm and elegance from the first scroll.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Technical Implementation</p>
+                <p>Development on <strong class="ch-mark">WordPress + Elementor Pro</strong> allowed full customization without sacrificing performance. The result is a <strong class="ch-mark">fully responsive</strong> site that's easy to manage, letting the client keep their content updated completely on their own.</p>
+            </div>`,
         live: 'https://lepapillonpeluquerias.com/',
     },
     {
         title: 'The Park Estudio',
-        description:
-            'Un desarrollo con una estética urbana y disruptiva, donde el negro y el verde eléctrico dominan la escena. Implementé una solución robusta utilizando WordPress, WooCommerce y FooEvents, permitiendo la gestión técnica de clases y eventos en tiempo real. Un sitio que refleja la fuerza y la rebeldía del estudio con un rendimiento optimizado.',
+        title_en: 'The Park Studio',
+        description: 'Un desarrollo con una estética urbana y disruptiva, donde el negro y el verde eléctrico dominan la escena. Implementé una solución robusta utilizando WordPress, WooCommerce y FooEvents, permitiendo la gestión técnica de clases y eventos en tiempo real. Un sitio que refleja la fuerza y la rebeldía del estudio con un rendimiento optimizado.',
+        description_en: 'A development with an urban and disruptive aesthetic, where deep blacks and electric greens dominate the scene. I implemented a robust solution using WordPress, WooCommerce, and FooEvents, enabling real-time technical management of classes and events. A site that reflects the studio\'s strength and rebellious spirit with optimized performance.',
         tags: ['Wordpress', 'Elementor', 'WooCommerce', 'FooEvents', 'PHP'],
         imgSrc: 'images/CapturaThePark.png',
         challenges: `
@@ -39,12 +50,22 @@ const PROJECTS = [
                 <p class="ch-block-title">Arquitectura Técnica</p>
                 <p>Este proyecto exigió una integración compleja: <strong class="ch-mark">WooCommerce + FooEvents</strong> para automatizar la venta de pases y reserva de clases con un checkout impecable. Sumé <strong class="ch-mark">PHP a medida</strong> para extender las funcionalidades del core, logrando una herramienta que no solo impacta visualmente, sino que gestiona el negocio de forma eficiente y escalable.</p>
             </div>`,
+        challenges_en: `
+            <div class="ch-block">
+                <p class="ch-block-title">Visual Concept</p>
+                <p>This wasn't just about designing a website — it was about building a <strong class="ch-mark">high-performance platform</strong> for a dance studio. The palette of <strong class="ch-mark">deep blacks and vibrant greens</strong> breaks with tradition, evoking the rebellious urban energy that defines its dancers. High-contrast typography and layouts guiding users from inspiration to action.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Technical Architecture</p>
+                <p>This project demanded complex integration: <strong class="ch-mark">WooCommerce + FooEvents</strong> to automate class pass sales and reservations with a flawless checkout. I added <strong class="ch-mark">custom PHP</strong> to extend core functionality, creating a tool that not only makes a visual impact but manages the business efficiently and scalably.</p>
+            </div>`,
         live: 'https://estudiothepark.com/',
     },
     {
         title: 'Uno7Street',
-        description:
-            'Un proyecto de identidad visual pura. Configuré la tienda online sobre la plataforma Empretienda, centrando el impacto en una estética GRUNGE, urbana y rebelde. Me encargué íntegramente de la edición del producto y el diseño del banner principal, logrando una coherencia visual que respira la esencia "street" de la marca.',
+        title_en: 'Uno7Street',
+        description: 'Un proyecto de identidad visual pura. Configuré la tienda online sobre la plataforma Empretienda, centrando el impacto en una estética GRUNGE, urbana y rebelde. Me encargué íntegramente de la edición del producto y el diseño del banner principal, logrando una coherencia visual que respira la esencia "street" de la marca.',
+        description_en: 'A pure visual identity project. I set up the online store on the Empretienda platform, focusing the impact on a GRUNGE, urban and rebellious aesthetic. I was fully responsible for product editing and the design of the main banner, achieving visual coherence that breathes the "street" essence of the brand.',
         tags: ['Empretienda', 'Figma', 'Edición Audiovisual'],
         imgSrc: 'images/CapturaUno7Street.png',
         challenges: `
@@ -56,12 +77,22 @@ const PROJECTS = [
                 <p class="ch-block-title">Plataforma &amp; Optimización</p>
                 <p>Trabajé sobre <strong class="ch-mark">Empretienda</strong> optimizando cada recurso visual para que el sitio cargue rápido sin perder calidad ni impacto estético. Un proyecto que demuestra que <strong class="ch-mark">tecnología e identidad visual</strong> pueden trabajar juntas para potenciar un negocio de punta a punta.</p>
             </div>`,
+        challenges_en: `
+            <div class="ch-block">
+                <p class="ch-block-title">Visual Production</p>
+                <p>The challenge was transforming a standard store into an <strong class="ch-mark">authentic brand experience</strong>. My role was integral: product editing to find angles and contrasts that highlight textures and garment design, plus the <strong class="ch-mark">main banner</strong> as the central piece that establishes the GRUNGE visual tone from the first second.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Platform &amp; Optimization</p>
+                <p>I worked on <strong class="ch-mark">Empretienda</strong>, optimizing every visual resource so the site loads fast without losing quality or aesthetic impact. A project that proves <strong class="ch-mark">technology and visual identity</strong> can work together to power a business end to end.</p>
+            </div>`,
         live: 'https://uno7street.empretienda.com.ar/',
     },
     {
         title: 'TomixVisuals',
-        description:
-            'Mi mayor desafío técnico y creativo hasta la fecha. Una plataforma desarrollada con React que lleva el diseño minimalista al siguiente nivel. Logré una experiencia sumamente balanceada, fusionando una estética elegante con una navegación intuitiva que puso a prueba mis límites en lógica de componentes y precisión visual.',
+        title_en: 'TomixVisuals',
+        description: 'Mi mayor desafío técnico y creativo hasta la fecha. Una plataforma desarrollada con React que lleva el diseño minimalista al siguiente nivel. Logré una experiencia sumamente balanceada, fusionando una estética elegante con una navegación intuitiva que puso a prueba mis límites en lógica de componentes y precisión visual.',
+        description_en: 'My greatest technical and creative challenge to date. A platform built with React that takes minimalist design to the next level. I achieved an exceptionally balanced experience, merging an elegant aesthetic with intuitive navigation that pushed my limits in component logic and visual precision.',
         tags: ['HTML', 'CSS', 'JavaScript', 'React', 'Figma'],
         imgSrc: 'images/CapturaTomixVisuals.png',
         challenges: `
@@ -72,6 +103,15 @@ const PROJECTS = [
             <div class="ch-block">
                 <p class="ch-block-title">Filosofía de Diseño</p>
                 <p>Prototipado en <strong class="ch-mark">Figma</strong>, el sitio sigue una línea minimalista donde <em>"menos es más"</em>. El resultado es una experiencia donde la <strong class="ch-mark">estética sofisticada</strong> guía al visitante de forma natural, demostrando que la complejidad técnica puede traducirse en una interfaz simple, potente y equilibrada.</p>
+            </div>`,
+        challenges_en: `
+            <div class="ch-block">
+                <p class="ch-block-title">The Technical Challenge</p>
+                <p>This project pushed my knowledge to the limit. I used <strong class="ch-mark">React</strong> to build a modular architecture with smooth transitions and fluid interactivity. Every line of CSS and every JS function was written to maintain <strong class="ch-mark">elegance without compromising performance</strong>, facing layout challenges that required pixel-perfect precision.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Design Philosophy</p>
+                <p>Prototyped in <strong class="ch-mark">Figma</strong>, the site follows a minimalist line where <em>"less is more"</em>. The result is an experience where <strong class="ch-mark">sophisticated aesthetics</strong> guide visitors naturally, proving that technical complexity can be translated into a simple, powerful, and balanced interface.</p>
             </div>`,
         live: 'https://tomixvisuals.vercel.app/',
     },
@@ -193,9 +233,10 @@ window.openModal = function openModal(index) {
     modalImg.style.backgroundImage = `url('${project.imgSrc}')`;
     modalImg.style.backgroundSize = 'cover';
     modalImg.style.backgroundPosition = 'center top';
-    modalTitle.textContent = project.title;
-    modalDesc.textContent = project.description;
-    modalChall.innerHTML = project.challenges;
+    const en = window.currentLang === 'en';
+    modalTitle.textContent = en && project.title_en ? project.title_en : project.title;
+    modalDesc.textContent  = en && project.description_en ? project.description_en : project.description;
+    modalChall.innerHTML   = en && project.challenges_en ? project.challenges_en : project.challenges;
 
     modalTags.innerHTML = project.tags
         .map((t) => `<span>${t}</span>`)
