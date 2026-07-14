@@ -180,10 +180,10 @@ body.loaded .animate-fade-left {
 .stack-grid .reveal:nth-child(7)  { transition-delay: 300ms; }
 .stack-grid .reveal:nth-child(8)  { transition-delay: 350ms; }
 
-.projects-grid .reveal:nth-child(1) { transition-delay: 0ms; }
-.projects-grid .reveal:nth-child(2) { transition-delay: 100ms; }
-.projects-grid .reveal:nth-child(3) { transition-delay: 200ms; }
-.projects-grid .reveal:nth-child(4) { transition-delay: 300ms; }
+.scroll-stack-card:nth-of-type(1) .reveal { transition-delay: 0ms; }
+.scroll-stack-card:nth-of-type(2) .reveal { transition-delay: 100ms; }
+.scroll-stack-card:nth-of-type(3) .reveal { transition-delay: 200ms; }
+.scroll-stack-card:nth-of-type(4) .reveal { transition-delay: 300ms; }
 
 .faq-list .reveal:nth-child(1) { transition-delay: 0ms; }
 .faq-list .reveal:nth-child(2) { transition-delay: 70ms; }
@@ -259,6 +259,8 @@ body.loaded .animate-fade-left {
     }
 
     .cursor-glow { display: none !important; }
+
+    .click-spark { display: none !important; }
 
     .card-glare { display: none !important; }
 

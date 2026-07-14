@@ -170,45 +170,55 @@ const PROJECTS = [
             e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
 
-            // Close mobile menu if open
-            closeMobileMenu();
+            // Close staggered menu if open
+            closeStaggeredMenu();
         });
     });
 })();
 
 
-// ── Hamburger / Mobile menu ─────────────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
+// ── Staggered Menu (port vanilla de React Bits, sin GSAP) ───────────────────
+// Toda la coreografía (capas de color, panel, stagger de links, socials)
+// la resuelve el CSS con transition-delay; acá solo se togglea un atributo.
+const smWrapper = document.getElementById('sm-wrapper');
+const smToggle  = document.getElementById('sm-toggle');
+const smPanel   = document.getElementById('sm-panel');
 
-function closeMobileMenu() {
-    if (!hamburger || !mobileMenu) return;
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    mobileMenu.classList.remove('open');
-    mobileMenu.setAttribute('aria-hidden', 'true');
+function closeStaggeredMenu() {
+    if (!smWrapper || !smWrapper.hasAttribute('data-open')) return;
+    smWrapper.removeAttribute('data-open');
+    smToggle.setAttribute('aria-expanded', 'false');
+    smToggle.setAttribute('aria-label', window.currentLang === 'en' ? 'Open menu' : 'Abrir menú');
+    smPanel.setAttribute('aria-hidden', 'true');
 }
 
-(function initHamburger() {
-    if (!hamburger || !mobileMenu) return;
+function openStaggeredMenu() {
+    if (!smWrapper) return;
+    smWrapper.setAttribute('data-open', '');
+    smToggle.setAttribute('aria-expanded', 'true');
+    smToggle.setAttribute('aria-label', window.currentLang === 'en' ? 'Close menu' : 'Cerrar menú');
+    smPanel.removeAttribute('aria-hidden');
+}
 
-    hamburger.addEventListener('click', () => {
-        const isOpen = hamburger.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', String(isOpen));
-        mobileMenu.classList.toggle('open', isOpen);
-        mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+(function initStaggeredMenu() {
+    if (!smWrapper || !smToggle || !smPanel) return;
+
+    smToggle.addEventListener('click', () => {
+        if (smWrapper.hasAttribute('data-open')) closeStaggeredMenu();
+        else openStaggeredMenu();
     });
 
-    // Close on outside click
+    // Cerrar al hacer click afuera del panel/botón
     document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-            closeMobileMenu();
+        if (!smWrapper.hasAttribute('data-open')) return;
+        if (!smPanel.contains(e.target) && !smToggle.contains(e.target)) {
+            closeStaggeredMenu();
         }
     });
 
-    // Close on Escape
+    // Cerrar con Escape
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMobileMenu();
+        if (e.key === 'Escape') closeStaggeredMenu();
     });
 })();
 

@@ -7,6 +7,9 @@ const TRANSLATIONS = {
         'nav-faq':          'FAQ',
         'nav-sobre-mi':     'Sobre Mí',
         'nav-contacto':     'Contacto',
+        'menu-toggle-open':  'Menú',
+        'menu-toggle-close': 'Cerrar',
+        'menu-socials':      'Redes',
         'hero-badge':       'Disponible para proyectos',
         'hero-title':       'Desarrollador Front-End. <br><span class="gradient-text">Construyendo webs de alto impacto</span>',
         'hero-subtitle':    'Elevando la presencia online de negocios con soluciones escalables y vistosas',
@@ -70,7 +73,7 @@ const TRANSLATIONS = {
         'faq5-q':           '¿También te encargás del diseño visual?',
         'faq5-a':           'Sí, ofrezco una <strong>solución integral</strong>; Puedo encargarme de la edición de video, imágenes y diseño de marca para asegurar que tu web tenga una identidad visual coherente. Al ser servicios que requieren una producción adicional al desarrollo web, su inclusión se verá reflejada en el presupuesto final según la cantidad y complejidad del material.',
         'cta-pill':         '¿Listo para empezar?',
-        'cta-title':        'Tu próxima web puede <span class="gradient-text">impresionar así</span>',
+        'cta-title':        'Tu próxima web puede <br><span class="gradient-text">impresionar así</span>',
         'cta-subtitle':     'Trabajemos juntos para crear una presencia digital que convierta visitantes en clientes reales.',
         'cta-btn':          'Quiero mi web',
         'contact-tag':      'Contacto',
@@ -104,6 +107,9 @@ const TRANSLATIONS = {
         'nav-faq':          'FAQ',
         'nav-sobre-mi':     'About Me',
         'nav-contacto':     'Contact',
+        'menu-toggle-open':  'Menu',
+        'menu-toggle-close': 'Close',
+        'menu-socials':      'Socials',
         'hero-badge':       'Available for projects',
         'hero-title':       'Front-End Developer. <br><span class="gradient-text">Building high-impact websites</span>',
         'hero-subtitle':    "Elevating businesses' online presence with scalable and stunning solutions",
@@ -167,7 +173,7 @@ const TRANSLATIONS = {
         'faq5-q':           'Do you also handle visual design?',
         'faq5-a':           'Yes, I offer a <strong>comprehensive solution</strong>; I can handle video editing, image editing, and brand design to ensure your website has a cohesive visual identity. Since these services require additional production beyond web development, their inclusion will be reflected in the final budget based on the amount and complexity of materials.',
         'cta-pill':         'Ready to get started?',
-        'cta-title':        'Your next website can <span class="gradient-text">impress like this</span>',
+        'cta-title':        'Your next website can <br><span class="gradient-text">impress like this</span>',
         'cta-subtitle':     "Let's work together to create a digital presence that converts visitors into real customers.",
         'cta-btn':          'I want my website',
         'contact-tag':      'Contact',
@@ -210,10 +216,25 @@ const TRANSLATIONS = {
             if (t[key] !== undefined) el.innerHTML = t[key];
         });
 
+        // El título del CTA quedó con el texto traducido en crudo: hay que
+        // reconstruir el efecto VariableProximity letra por letra de nuevo.
+        window.refreshVariableProximity?.();
+
         document.querySelectorAll('[data-i18n-ph]').forEach((el) => {
             const key = el.dataset.i18nPh;
             if (t[key] !== undefined) el.placeholder = t[key];
         });
+
+        // Sincronizar el aria-label del toggle del menú (no pasa por data-i18n
+        // porque su texto visible depende también del estado abierto/cerrado)
+        const smToggle = document.getElementById('sm-toggle');
+        if (smToggle) {
+            const isOpen = smToggle.getAttribute('aria-expanded') === 'true';
+            const label = isOpen
+                ? (lang === 'es' ? 'Cerrar menú' : 'Close menu')
+                : (lang === 'es' ? 'Abrir menú' : 'Open menu');
+            smToggle.setAttribute('aria-label', label);
+        }
 
         langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
         document.documentElement.lang = lang === 'es' ? 'es' : 'en';
