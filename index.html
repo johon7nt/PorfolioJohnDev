@@ -23,13 +23,20 @@
 </head>
 <body>
 
+    <!-- Barra de progreso de scroll -->
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Aura que sigue al cursor (solo desktop) -->
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
     <!-- Fondo global fijo (visible en toda la página) -->
-    <div class="global-bg" aria-hidden="true">
+    <div class="global-bg" id="global-bg" aria-hidden="true">
         <div class="g-orb g-orb-1"></div>
         <div class="g-orb g-orb-2"></div>
         <div class="g-orb g-orb-3"></div>
         <div class="g-orb g-orb-4"></div>
         <div class="g-grid"></div>
+        <div class="g-noise"></div>
     </div>
 
     <!-- ==============================
@@ -254,8 +261,11 @@
     <section id="sobre-mi" class="section s-clear about-section" aria-labelledby="about-title">
         <div class="container about-grid">
             <div class="about-image reveal">
-                <div class="about-photo-glass">
-                    <img src="images/FotoAboutMe2.jpeg" alt="Juan Cruz Romero" loading="lazy" class="about-photo-img">
+                <div class="about-photo-glass" id="about-card">
+                    <div class="card-shine-wrap" id="about-card-tilt">
+                        <img src="images/FotoAboutMe2.jpeg" alt="Juan Cruz Romero" loading="lazy" class="about-photo-img">
+                        <div class="card-glare" aria-hidden="true"></div>
+                    </div>
                     <div class="about-decoration" aria-hidden="true"></div>
                 </div>
             </div>
@@ -390,14 +400,15 @@
                          role="button" tabindex="0"
                          aria-label="Ver detalles: Le Papillon Peluquerías"
                          data-project="0"
-                         onclick="openModal(0)"
-                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(0)}">
+                         onclick="openProject(0)"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProject(0)}">
                     <div class="project-img-wrapper">
                         <div class="project-img" aria-hidden="true">
                             <img src="images/CapturaLePapillon.png" alt="Le Papillon Peluquerías" loading="lazy">
                             <div class="project-overlay">
                                 <span data-i18n="proj-overlay">Ver proyecto →</span>
                             </div>
+                            <span class="project-badge"><span data-i18n="proj0-metric">95/100 PageSpeed</span></span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -413,14 +424,15 @@
                          role="button" tabindex="0"
                          aria-label="Ver detalles: The Park Estudio"
                          data-project="1"
-                         onclick="openModal(1)"
-                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(1)}">
+                         onclick="openProject(1)"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProject(1)}">
                     <div class="project-img-wrapper">
                         <div class="project-img" aria-hidden="true">
                             <img src="images/CapturaThePark.png" alt="The Park Estudio" loading="lazy">
                             <div class="project-overlay">
                                 <span data-i18n="proj-overlay">Ver proyecto →</span>
                             </div>
+                            <span class="project-badge"><span data-i18n="proj1-metric">+300 entradas vendidas</span></span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -436,14 +448,15 @@
                          role="button" tabindex="0"
                          aria-label="Ver detalles: Uno7Street"
                          data-project="2"
-                         onclick="openModal(2)"
-                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(2)}">
+                         onclick="openProject(2)"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProject(2)}">
                     <div class="project-img-wrapper">
                         <div class="project-img" aria-hidden="true">
                             <img src="images/CapturaUno7Street.png" alt="Uno7Street" loading="lazy">
                             <div class="project-overlay">
                                 <span data-i18n="proj-overlay">Ver proyecto →</span>
                             </div>
+                            <span class="project-badge"><span data-i18n="proj2-metric">+35% conversión</span></span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -459,14 +472,15 @@
                          role="button" tabindex="0"
                          aria-label="Ver detalles: TomixVisuals"
                          data-project="3"
-                         onclick="openModal(3)"
-                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(3)}">
+                         onclick="openProject(3)"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openProject(3)}">
                     <div class="project-img-wrapper">
                         <div class="project-img" aria-hidden="true">
                             <img src="images/CapturaTomixVisuals.png" alt="TomixVisuals" loading="lazy">
                             <div class="project-overlay">
                                 <span data-i18n="proj-overlay">Ver proyecto →</span>
                             </div>
+                            <span class="project-badge"><span data-i18n="proj3-metric">98/100 Lighthouse</span></span>
                         </div>
                     </div>
                     <div class="project-info">
@@ -726,35 +740,59 @@
 
 
     <!-- ==============================
-         PROJECT MODAL
+         PROJECT PAGE (caso de estudio a pantalla completa)
     ================================= -->
-    <div class="modal-overlay" id="modal-overlay"
+    <div class="proj-page" id="proj-page"
          role="dialog" aria-modal="true"
-         aria-labelledby="modal-title"
+         aria-labelledby="pp-title"
          aria-hidden="true">
-        <div class="modal-box glass-card">
-            <button class="modal-close" id="modal-close" aria-label="Cerrar">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+
+        <!-- Topbar translúcida (estilo Apple: aparece al scrollear) -->
+        <div class="proj-topbar" id="pp-topbar">
+            <button class="pp-back" id="pp-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6"/>
                 </svg>
+                <span data-i18n="pp-back">Volver</span>
             </button>
+            <span class="pp-topbar-title" id="pp-topbar-title" aria-hidden="true"></span>
+            <a href="#" class="pp-topbar-live" id="pp-topbar-live" target="_blank" rel="noopener noreferrer">
+                <span data-i18n="pp-visit">Visitar sitio</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M7 7h10v10"/>
+                </svg>
+            </a>
+        </div>
 
-            <div class="modal-img-wrapper">
-                <div class="modal-img" id="modal-img" aria-hidden="true"></div>
-            </div>
-
-            <div class="modal-content">
-                <h3 class="modal-title" id="modal-title"></h3>
-                <p class="modal-desc" id="modal-desc"></p>
-                <div class="tech-tags modal-tags" id="modal-tags"></div>
-
-                <div class="modal-detail">
-                    <h4 data-i18n="modal-chall-h">Desafíos &amp; Soluciones</h4>
-                    <p id="modal-challenges"></p>
+        <div class="proj-page-scroll" id="pp-scroll">
+            <!-- Hero con parallax -->
+            <header class="pp-hero">
+                <div class="pp-hero-media" id="pp-hero-media">
+                    <img id="pp-hero-img" src="" alt="">
                 </div>
+                <div class="pp-hero-gradient" aria-hidden="true"></div>
+                <div class="pp-hero-text" id="pp-hero-text">
+                    <span class="pp-kicker" data-i18n="pp-kicker">Caso de estudio</span>
+                    <h2 class="pp-title" id="pp-title"></h2>
+                    <div class="tech-tags pp-tags" id="pp-tags"></div>
+                </div>
+            </header>
 
-                <div class="modal-actions">
-                    <a href="#" class="btn btn-primary" id="modal-live" target="_blank" rel="noopener noreferrer">
+            <div class="pp-body">
+                <p class="pp-lead" id="pp-desc"></p>
+
+                <section class="pp-section" aria-labelledby="pp-metrics-h">
+                    <h3 id="pp-metrics-h" data-i18n="modal-metrics-h">Impacto &amp; Resultados</h3>
+                    <div class="pp-rings" id="pp-rings"></div>
+                </section>
+
+                <section class="pp-section" aria-labelledby="pp-chall-h">
+                    <h3 id="pp-chall-h" data-i18n="modal-chall-h">Desafíos &amp; Soluciones</h3>
+                    <div class="pp-challenges" id="pp-challenges"></div>
+                </section>
+
+                <div class="pp-actions">
+                    <a href="#" class="btn btn-primary" id="pp-live" target="_blank" rel="noopener noreferrer">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                             <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
@@ -762,6 +800,17 @@
                         <span data-i18n="modal-live-btn">Ver Proyecto</span>
                     </a>
                 </div>
+
+                <nav class="pp-nav" aria-label="Más proyectos">
+                    <button class="pp-nav-card" id="pp-prev">
+                        <small data-i18n="pp-prev">← Proyecto anterior</small>
+                        <strong id="pp-prev-title"></strong>
+                    </button>
+                    <button class="pp-nav-card pp-nav-next" id="pp-next">
+                        <small data-i18n="pp-next">Siguiente proyecto →</small>
+                        <strong id="pp-next-title"></strong>
+                    </button>
+                </nav>
             </div>
         </div>
     </div>
