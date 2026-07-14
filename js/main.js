@@ -33,6 +33,13 @@ const PROJECTS = [
                 <p>Development on <strong class="ch-mark">WordPress + Elementor Pro</strong> allowed full customization without sacrificing performance. The result is a <strong class="ch-mark">fully responsive</strong> site that's easy to manage, letting the client keep their content updated completely on their own.</p>
             </div>`,
         live: 'https://lepapillonpeluquerias.com/',
+        // Métricas de impacto — REEMPLAZAR con datos reales del proyecto
+        // pct = llenado del anillo (0-100); value = número que se muestra
+        metrics: [
+            { value: 95, suffix: '/100', pct: 95, label: 'PageSpeed móvil', label_en: 'Mobile PageSpeed' },
+            { value: 1.8, suffix: 's', decimals: 1, pct: 84, label: 'Tiempo de carga', label_en: 'Load time' },
+            { value: 40, prefix: '+', suffix: '%', pct: 40, label: 'Reservas online', label_en: 'Online bookings' },
+        ],
     },
     {
         title: 'The Park Estudio',
@@ -60,6 +67,13 @@ const PROJECTS = [
                 <p>This project demanded complex integration: <strong class="ch-mark">WooCommerce + FooEvents</strong> to automate class pass sales and reservations with a flawless checkout. I added <strong class="ch-mark">custom PHP</strong> to extend core functionality, creating a tool that not only makes a visual impact but manages the business efficiently and scalably.</p>
             </div>`,
         live: 'https://estudiothepark.com/',
+        // Métricas de impacto — REEMPLAZAR con datos reales del proyecto
+        // pct = llenado del anillo (0-100); value = número que se muestra
+        metrics: [
+            { value: 300, prefix: '+', pct: 86, label: 'Entradas vendidas', label_en: 'Tickets sold' },
+            { value: 100, suffix: '%', pct: 100, label: 'Venta automatizada', label_en: 'Automated sales' },
+            { value: 2.1, suffix: 's', decimals: 1, pct: 78, label: 'Tiempo de carga', label_en: 'Load time' },
+        ],
     },
     {
         title: 'Uno7Street',
@@ -87,6 +101,13 @@ const PROJECTS = [
                 <p>I worked on <strong class="ch-mark">Empretienda</strong>, optimizing every visual resource so the site loads fast without losing quality or aesthetic impact. A project that proves <strong class="ch-mark">technology and visual identity</strong> can work together to power a business end to end.</p>
             </div>`,
         live: 'https://uno7street.empretienda.com.ar/',
+        // Métricas de impacto — REEMPLAZAR con datos reales del proyecto
+        // pct = llenado del anillo (0-100); value = número que se muestra
+        metrics: [
+            { value: 35, prefix: '+', suffix: '%', pct: 35, label: 'Conversión', label_en: 'Conversion' },
+            { value: 40, prefix: '+', pct: 62, label: 'Productos editados', label_en: 'Products edited' },
+            { value: 1.5, suffix: 's', decimals: 1, pct: 88, label: 'Tiempo de carga', label_en: 'Load time' },
+        ],
     },
     {
         title: 'TomixVisuals',
@@ -114,6 +135,13 @@ const PROJECTS = [
                 <p>Prototyped in <strong class="ch-mark">Figma</strong>, the site follows a minimalist line where <em>"less is more"</em>. The result is an experience where <strong class="ch-mark">sophisticated aesthetics</strong> guide visitors naturally, proving that technical complexity can be translated into a simple, powerful, and balanced interface.</p>
             </div>`,
         live: 'https://tomixvisuals.vercel.app/',
+        // Métricas de impacto — REEMPLAZAR con datos reales del proyecto
+        // pct = llenado del anillo (0-100); value = número que se muestra
+        metrics: [
+            { value: 98, suffix: '/100', pct: 98, label: 'Lighthouse', label_en: 'Lighthouse' },
+            { value: 1.2, suffix: 's', decimals: 1, pct: 92, label: 'First Paint', label_en: 'First Paint' },
+            { value: 60, suffix: 'fps', pct: 100, label: 'Animaciones fluidas', label_en: 'Smooth animations' },
+        ],
     },
 ];
 
@@ -134,7 +162,8 @@ const PROJECTS = [
     onScroll();
 
     // Smooth scroll for all in-page anchor links
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    // (excluye href="#" pelado: los usan los botones del case study antes de poblarse)
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach((link) => {
         link.addEventListener('click', (e) => {
             const target = document.querySelector(link.getAttribute('href'));
             if (!target) return;
@@ -213,92 +242,355 @@ function closeMobileMenu() {
 
 
 // ── Project Modal ───────────────────────────────────────────────────────────
-const modalOverlay  = document.getElementById('modal-overlay');
-const modalClose    = document.getElementById('modal-close');
-const modalImg      = document.getElementById('modal-img');
-const modalTitle    = document.getElementById('modal-title');
-const modalDesc     = document.getElementById('modal-desc');
-const modalTags     = document.getElementById('modal-tags');
-const modalChall    = document.getElementById('modal-challenges');
-const modalLive     = document.getElementById('modal-live');
+const ppPage        = document.getElementById('proj-page');
+const ppScroll      = document.getElementById('pp-scroll');
+const ppTopbar      = document.getElementById('pp-topbar');
+const ppTopbarTitle = document.getElementById('pp-topbar-title');
+const ppTopbarLive  = document.getElementById('pp-topbar-live');
+const ppBack        = document.getElementById('pp-back');
+const ppHero        = ppPage ? ppPage.querySelector('.pp-hero') : null;
+const ppHeroMedia   = document.getElementById('pp-hero-media');
+const ppHeroImg     = document.getElementById('pp-hero-img');
+const ppHeroText    = document.getElementById('pp-hero-text');
+const ppTitle       = document.getElementById('pp-title');
+const ppTags        = document.getElementById('pp-tags');
+const ppDesc        = document.getElementById('pp-desc');
+const ppRingsEl     = document.getElementById('pp-rings');
+const ppChallenges  = document.getElementById('pp-challenges');
+const ppLive        = document.getElementById('pp-live');
+const ppPrev        = document.getElementById('pp-prev');
+const ppNext        = document.getElementById('pp-next');
+const ppPrevTitle   = document.getElementById('pp-prev-title');
+const ppNextTitle   = document.getElementById('pp-next-title');
+
+const PREFERS_REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let previouslyFocused = null;
+let currentProject    = -1;
+let historyPushed     = false;   // true si esta sesión hizo pushState al abrir
+let ringObserver      = null;
 
-window.openModal = function openModal(index) {
-    const project = PROJECTS[index];
-    if (!project || !modalOverlay) return;
+// ── Contador animado (soporta decimales) ────────────────────────────────────
+function animateValue(el, target, decimals, duration = 1400) {
+    if (PREFERS_REDUCED) {
+        el.textContent = target.toFixed(decimals);
+        return;
+    }
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const start = performance.now();
 
-    // Populate content
-    modalImg.className = 'modal-img';
-    modalImg.style.backgroundImage = `url('${project.imgSrc}')`;
-    modalImg.style.backgroundSize = 'cover';
-    modalImg.style.backgroundPosition = 'center top';
-    const en = window.currentLang === 'en';
-    modalTitle.textContent = en && project.title_en ? project.title_en : project.title;
-    modalDesc.textContent  = en && project.description_en ? project.description_en : project.description;
-    modalChall.innerHTML   = en && project.challenges_en ? project.challenges_en : project.challenges;
+    function update(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        el.textContent = (easeOut(progress) * target).toFixed(decimals);
+        if (progress < 1) requestAnimationFrame(update);
+    }
 
-    modalTags.innerHTML = project.tags
-        .map((t) => `<span>${t}</span>`)
-        .join('');
-
-    modalLive.href = project.live;
-
-    // Open
-    previouslyFocused = document.activeElement;
-    modalOverlay.removeAttribute('aria-hidden');
-    modalOverlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-
-    // Focus the close button
-    requestAnimationFrame(() => modalClose.focus());
-};
-
-function closeModal() {
-    if (!modalOverlay) return;
-    modalOverlay.classList.remove('open');
-    modalOverlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    if (previouslyFocused) previouslyFocused.focus();
+    requestAnimationFrame(update);
 }
 
-(function initModal() {
-    if (!modalOverlay) return;
+// ── Ring charts (métricas estilo Apple Watch) ───────────────────────────────
+const RING_R = 56;
+const RING_C = 2 * Math.PI * RING_R;
+const RING_COLORS = [
+    ['#0A84FF', '#5E5CE6'],
+    ['#5E5CE6', '#BF5AF2'],
+    ['#BF5AF2', '#FF6482'],
+];
 
-    modalClose?.addEventListener('click', closeModal);
+function buildRings(project) {
+    if (!ppRingsEl) return;
 
-    // Close on backdrop click
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) closeModal();
-    });
+    if (ringObserver) {
+        ringObserver.disconnect();
+        ringObserver = null;
+    }
 
-    // Close on Escape
+    const metrics = project.metrics || [];
+    const en = window.currentLang === 'en';
+
+    ppRingsEl.classList.remove('ring-go');
+    ppRingsEl.innerHTML = metrics
+        .map((m, i) => {
+            const [c1, c2] = RING_COLORS[i % RING_COLORS.length];
+            const pct = Math.max(0, Math.min(100, m.pct != null ? m.pct : m.value));
+            const off = (RING_C * (1 - pct / 100)).toFixed(2);
+            const label = en && m.label_en ? m.label_en : m.label;
+            return `
+            <div class="ring-card">
+                <div class="ring-wrap">
+                    <svg viewBox="0 0 132 132" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="ppg-${i}" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="${c1}"/>
+                                <stop offset="1" stop-color="${c2}"/>
+                            </linearGradient>
+                        </defs>
+                        <circle class="ring-track" cx="66" cy="66" r="${RING_R}"/>
+                        <circle class="ring-value" cx="66" cy="66" r="${RING_R}"
+                                stroke="url(#ppg-${i})"
+                                style="--ring-c: ${RING_C.toFixed(2)}; --ring-off: ${off}; --ring-delay: ${(i * 0.15).toFixed(2)}s"/>
+                    </svg>
+                    <div class="ring-center">
+                        <span class="ring-number">
+                            ${m.prefix ? `<span class="ring-prefix">${m.prefix}</span>` : ''}
+                            <span class="ring-num">0</span>
+                            ${m.suffix ? `<span class="ring-suffix">${m.suffix}</span>` : ''}
+                        </span>
+                    </div>
+                </div>
+                <span class="ring-label">${label}</span>
+            </div>`;
+        })
+        .join('');
+
+    if (!metrics.length) return;
+
+    const fire = () => {
+        ppRingsEl.classList.add('ring-go');
+        ppRingsEl.querySelectorAll('.ring-num').forEach((el, i) => {
+            animateValue(el, metrics[i].value, metrics[i].decimals || 0);
+        });
+    };
+
+    if (PREFERS_REDUCED) {
+        fire();
+        return;
+    }
+
+    // Los anillos se llenan recién cuando entran en el viewport del case study
+    ringObserver = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+            fire();
+            ringObserver.disconnect();
+            ringObserver = null;
+        }
+    }, { root: ppScroll, threshold: 0.35 });
+    ringObserver.observe(ppRingsEl);
+}
+
+// ── Poblar la página de proyecto ────────────────────────────────────────────
+function localized(obj, field) {
+    const en = window.currentLang === 'en';
+    return en && obj[`${field}_en`] ? obj[`${field}_en`] : obj[field];
+}
+
+function populateProject(index) {
+    const project = PROJECTS[index];
+    currentProject = index;
+
+    const title = localized(project, 'title');
+    ppHeroImg.src = project.imgSrc;
+    ppHeroImg.alt = title;
+    ppTitle.textContent = title;
+    ppTopbarTitle.textContent = title;
+    ppDesc.textContent = localized(project, 'description');
+    ppChallenges.innerHTML = localized(project, 'challenges');
+    ppTags.innerHTML = project.tags.map((t) => `<span>${t}</span>`).join('');
+    ppLive.href = project.live;
+    ppTopbarLive.href = project.live;
+
+    const prevI = (index - 1 + PROJECTS.length) % PROJECTS.length;
+    const nextI = (index + 1) % PROJECTS.length;
+    ppPrevTitle.textContent = localized(PROJECTS[prevI], 'title');
+    ppNextTitle.textContent = localized(PROJECTS[nextI], 'title');
+    ppPrev.dataset.target = prevI;
+    ppNext.dataset.target = nextI;
+
+    buildRings(project);
+
+    // Reset del estado visual de scroll
+    ppTopbar.classList.remove('scrolled');
+    ppHeroMedia.style.transform = '';
+    ppHeroText.style.opacity = '';
+    ppHeroText.style.transform = '';
+}
+
+// ── Transición FLIP: la card se expande hasta el hero ───────────────────────
+function runFlip(index) {
+    // Con la pestaña oculta las animaciones quedan pausadas: mejor abrir directo
+    if (document.hidden) return;
+    const cardImg = document.querySelector(`.project-card[data-project="${index}"] .project-img img`);
+    if (!cardImg || !ppHeroMedia || typeof ppHeroMedia.animate !== 'function') return;
+
+    const from = cardImg.getBoundingClientRect();
+    if (!from.width || !from.height) return;
+    const to = ppHeroMedia.getBoundingClientRect();
+
+    const clone = document.createElement('div');
+    clone.className = 'pp-flip-clone';
+    clone.style.top = `${from.top}px`;
+    clone.style.left = `${from.left}px`;
+    clone.style.width = `${from.width}px`;
+    clone.style.height = `${from.height}px`;
+    clone.style.backgroundImage = `url('${PROJECTS[index].imgSrc}')`;
+    document.body.appendChild(clone);
+
+    ppHeroMedia.style.opacity = '0';
+
+    const anim = clone.animate([
+        { transform: 'translate(0, 0) scale(1, 1)', borderRadius: '14px' },
+        {
+            transform: `translate(${to.left - from.left}px, ${to.top - from.top}px) ` +
+                       `scale(${to.width / from.width}, ${to.height / from.height})`,
+            borderRadius: '0px',
+        },
+    ], { duration: 560, easing: 'cubic-bezier(0.32, 0.72, 0, 1)' });
+
+    anim.onfinish = anim.oncancel = () => {
+        ppHeroMedia.style.opacity = '';
+        clone.remove();
+    };
+}
+
+// ── Crossfade al navegar entre proyectos (prev/next) ────────────────────────
+function crossfadeTo(index) {
+    if (PREFERS_REDUCED || document.hidden || typeof ppScroll.animate !== 'function') {
+        populateProject(index);
+        ppScroll.scrollTop = 0;
+        return;
+    }
+
+    const fadeOut = ppScroll.animate(
+        [{ opacity: 1 }, { opacity: 0 }],
+        { duration: 180, easing: 'ease-in', fill: 'forwards' }
+    );
+    fadeOut.onfinish = () => {
+        populateProject(index);
+        ppScroll.scrollTop = 0;
+        fadeOut.cancel();
+        ppScroll.animate(
+            [{ opacity: 0 }, { opacity: 1 }],
+            { duration: 300, easing: 'ease-out' }
+        );
+    };
+}
+
+// ── Abrir / cerrar ──────────────────────────────────────────────────────────
+window.openProject = function openProject(index, opts = {}) {
+    const project = PROJECTS[index];
+    if (!project || !ppPage) return;
+
+    const alreadyOpen = ppPage.classList.contains('open');
+
+    if (!opts.fromHistory) {
+        if (alreadyOpen) {
+            history.replaceState({ proj: index }, '', `#proyecto-${index + 1}`);
+        } else {
+            history.pushState({ proj: index }, '', `#proyecto-${index + 1}`);
+            historyPushed = true;
+        }
+    }
+
+    if (alreadyOpen) {
+        crossfadeTo(index);
+        return;
+    }
+
+    populateProject(index);
+    ppScroll.scrollTop = 0;
+
+    previouslyFocused = document.activeElement;
+    ppPage.removeAttribute('aria-hidden');
+    ppPage.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    if (!opts.instant && !PREFERS_REDUCED) runFlip(index);
+
+    requestAnimationFrame(() => ppBack.focus());
+};
+
+function doCloseProject() {
+    if (!ppPage || !ppPage.classList.contains('open')) return;
+    ppPage.classList.remove('open');
+    ppPage.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (previouslyFocused && document.contains(previouslyFocused)) {
+        previouslyFocused.focus();
+    }
+}
+
+function requestCloseProject() {
+    if (historyPushed) {
+        // El popstate resultante hace el cierre real
+        history.back();
+    } else {
+        doCloseProject();
+        if (/^#proyecto-/.test(location.hash)) {
+            history.replaceState(null, '', location.pathname + location.search);
+        }
+    }
+}
+
+// ── Listeners de la página de proyecto ──────────────────────────────────────
+(function initProjectPage() {
+    if (!ppPage) return;
+
+    ppBack.addEventListener('click', requestCloseProject);
+
+    ppPrev.addEventListener('click', () => window.openProject(Number(ppPrev.dataset.target)));
+    ppNext.addEventListener('click', () => window.openProject(Number(ppNext.dataset.target)));
+
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
-            closeModal();
+        if (e.key === 'Escape' && ppPage.classList.contains('open')) {
+            requestCloseProject();
         }
     });
 
-    // Focus trap inside modal
-    modalOverlay.addEventListener('keydown', trapFocus);
-})();
+    // Focus trap
+    ppPage.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab' || !ppPage.classList.contains('open')) return;
+        const focusable = ppPage.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
 
-function trapFocus(e) {
-    if (e.key !== 'Tab' || !modalOverlay.classList.contains('open')) return;
-    const focusable = modalOverlay.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    });
 
-    if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
+    // Parallax del hero + topbar translúcida al scrollear el case study
+    let scrollRaf = null;
+    ppScroll.addEventListener('scroll', () => {
+        if (scrollRaf) return;
+        scrollRaf = requestAnimationFrame(() => {
+            const y = ppScroll.scrollTop;
+            const heroH = (ppHero && ppHero.offsetHeight) || 1;
+            ppTopbar.classList.toggle('scrolled', y > heroH - 90);
+
+            if (!PREFERS_REDUCED && y <= heroH) {
+                ppHeroMedia.style.transform = `translateY(${(y * 0.38).toFixed(1)}px)`;
+                ppHeroText.style.opacity = Math.max(0, 1 - y / (heroH * 0.55)).toFixed(3);
+                ppHeroText.style.transform = `translateY(${(y * 0.14).toFixed(1)}px)`;
+            }
+            scrollRaf = null;
+        });
+    }, { passive: true });
+
+    // Navegación con botón atrás/adelante del navegador
+    window.addEventListener('popstate', (e) => {
+        const s = e.state;
+        if (s && s.proj != null && PROJECTS[s.proj]) {
+            window.openProject(s.proj, { fromHistory: true });
+        } else {
+            historyPushed = false;
+            doCloseProject();
+        }
+    });
+
+    // Deep link: abrir directamente #proyecto-N
+    const m = location.hash.match(/^#proyecto-(\d+)$/);
+    if (m && PROJECTS[m[1] - 1]) {
+        const idx = m[1] - 1;
+        history.replaceState({ proj: idx }, '', location.hash);
+        window.openProject(idx, { fromHistory: true, instant: true });
     }
-}
+})();
 
 
 // ── Services Carousel (infinite loop) ───────────────────────────────────────

@@ -86,6 +86,20 @@
     100% { background-position: 200% 0; }
 }
 
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+}
+
+/* ================================================
+   ANIMATED GRADIENT TEXT
+   (el gradiente se desplaza lentamente — hero, CTA)
+   ================================================ */
+.gradient-text {
+    background-size: 200% auto;
+    animation: gradientShift 6s ease-in-out infinite;
+}
+
 /* ================================================
    HERO ENTRANCE ANIMATIONS
    (fired once on page load via JS class .loaded)
@@ -119,13 +133,34 @@ body.loaded .animate-fade-left {
 .reveal {
     opacity: 0;
     transform: translateY(32px);
-    transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.8s var(--ease-out-expo),
+                transform 0.8s var(--ease-out-expo);
 }
 
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Desktop: los reveals entran con un desenfoque que se disipa
+   (filter es costoso en GPU móvil, por eso solo min-width) */
+@media (min-width: 769px) {
+    .reveal {
+        filter: blur(9px);
+        transition: opacity 0.8s var(--ease-out-expo),
+                    transform 0.8s var(--ease-out-expo),
+                    filter 0.8s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+        filter: blur(0);
+    }
+}
+
+/* Cards con tilt 3D (el transform lo maneja JS) */
+.project-card,
+.service-card {
+    will-change: transform;
 }
 
 /* Staggered children */
@@ -217,7 +252,15 @@ body.loaded .animate-fade-left {
     .badge-dot,
     .hero-floating-badge,
     .scroll-line,
-    .availability-dot {
+    .availability-dot,
+    .gradient-text,
+    .project-badge::before {
         animation: none !important;
     }
+
+    .cursor-glow { display: none !important; }
+
+    .card-glare { display: none !important; }
+
+    .reveal { filter: none; }
 }
