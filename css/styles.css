@@ -2650,14 +2650,7 @@ ul {
     .about-image { display: none; }
 
     .about-photo-mobile {
-        display: block;
-        width: 100%;
-        max-width: 360px;
-        border-radius: var(--radius-xl);
-        object-fit: cover;
-        border: 1px solid var(--glass-border);
-        box-shadow: var(--shadow-md);
-        margin: 8px auto 0;
+        display: none;
     }
 
     .about-content {
