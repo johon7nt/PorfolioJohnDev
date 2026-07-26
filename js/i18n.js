@@ -46,6 +46,9 @@ const TRANSLATIONS = {
         'proj-tag':         'Portfolio',
         'proj-title':       'Proyectos Destacados',
         'proj-subtitle':    'Una selección de trabajos que demuestran mi enfoque y capacidades',
+        'proj-more-btn':    'Ver más proyectos',
+        'ap-title':         'Todos los Proyectos',
+        'ap-subtitle':      'Todos los trabajos que forman parte de mi portfolio',
         'proj-overlay':     'Ver proyecto →',
         'proj0-title':      'Le Papillon Peluquerías',
         'proj0-desc':       'Sitio web para cadena de peluquerías con galería, servicios y reservas',
@@ -55,10 +58,10 @@ const TRANSLATIONS = {
         'proj2-desc':       'Tienda online de ropa urbana con integración de pago y envío junto a un panel de administración',
         'proj3-title':      'TomixVisuals',
         'proj3-desc':       'Página para agencia de marketing digital de alto impacto y estética',
-        'proj0-metric':     '95/100 PageSpeed',
-        'proj1-metric':     '+300 entradas vendidas',
-        'proj2-metric':     '+35% conversión',
-        'proj3-metric':     '98/100 Lighthouse',
+        'proj0-metric':     'Online',
+        'proj1-metric':     'Online',
+        'proj2-metric':     'Online',
+        'proj3-metric':     'Online',
         'faq-tag':          'Preguntas',
         'faq-title':        'Preguntas Frecuentes',
         'faq-subtitle':     'Todo lo que necesitás saber antes de comenzar',
@@ -146,6 +149,9 @@ const TRANSLATIONS = {
         'proj-tag':         'Portfolio',
         'proj-title':       'Featured Projects',
         'proj-subtitle':    'A selection of work that showcases my approach and capabilities',
+        'proj-more-btn':    'See more projects',
+        'ap-title':         'All Projects',
+        'ap-subtitle':      'All the work that makes up my portfolio',
         'proj-overlay':     'View project →',
         'proj0-title':      'Le Papillon Hair Salon',
         'proj0-desc':       'Website for a hair salon chain with gallery, services, and bookings',
@@ -155,10 +161,10 @@ const TRANSLATIONS = {
         'proj2-desc':       'Urban clothing online store with integrated payment, shipping, and an admin panel',
         'proj3-title':      'TomixVisuals',
         'proj3-desc':       'Website for a high-impact and aesthetic digital marketing agency',
-        'proj0-metric':     '95/100 PageSpeed',
-        'proj1-metric':     '+300 tickets sold',
-        'proj2-metric':     '+35% conversion',
-        'proj3-metric':     '98/100 Lighthouse',
+        'proj0-metric':     'Online',
+        'proj1-metric':     'Online',
+        'proj2-metric':     'Online',
+        'proj3-metric':     'Online',
         'faq-tag':          'FAQ',
         'faq-title':        'Frequently Asked Questions',
         'faq-subtitle':     'Everything you need to know before getting started',
@@ -219,6 +225,10 @@ const TRANSLATIONS = {
         // El título del CTA quedó con el texto traducido en crudo: hay que
         // reconstruir el efecto VariableProximity letra por letra de nuevo.
         window.refreshVariableProximity?.();
+
+        // La grilla de "todos los proyectos" se genera desde JS con innerHTML:
+        // si está abierta al traducir, hay que reconstruirla con el nuevo idioma.
+        window.refreshAllProjectsGrid?.();
 
         document.querySelectorAll('[data-i18n-ph]').forEach((el) => {
             const key = el.dataset.i18nPh;

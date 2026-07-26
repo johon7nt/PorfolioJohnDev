@@ -577,6 +577,190 @@ const FINE_POINTER   = window.matchMedia('(hover: hover) and (pointer: fine)').m
 })();
 
 
+// ── ShapeGrid (port vanilla de React Bits) ─────────────────────────────────
+// Fondo de las páginas de proyecto: grilla que se desliza en diagonal y
+// cuyas celdas se iluminan (con una breve estela) al pasar el cursor.
+(function initShapeGrid() {
+    if (REDUCED_MOTION) return;
+
+    const canvas = document.getElementById('pp-shapegrid');
+    const ppPage = document.getElementById('proj-page');
+    if (!canvas || !ppPage) return;
+    const ctx = canvas.getContext('2d');
+
+    const DIRECTION         = 'diagonal';
+    const SPEED              = 0.4;
+    const BORDER_COLOR       = 'rgba(255, 255, 255, 0.07)';
+    const SQUARE_SIZE        = 44;
+    const HOVER_FILL_COLOR   = 'rgba(0, 122, 255, 0.18)';
+    const HOVER_TRAIL_AMOUNT = 4;
+
+    const gridOffset = { x: 0, y: 0 };
+    let hoveredSquare = null;
+    let trailCells = [];
+    const cellOpacities = new Map();
+
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+
+    function drawGrid() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        const offsetX = ((gridOffset.x % SQUARE_SIZE) + SQUARE_SIZE) % SQUARE_SIZE;
+        const offsetY = ((gridOffset.y % SQUARE_SIZE) + SQUARE_SIZE) % SQUARE_SIZE;
+
+        const cols = Math.ceil(canvas.width / SQUARE_SIZE) + 3;
+        const rows = Math.ceil(canvas.height / SQUARE_SIZE) + 3;
+
+        for (let col = -2; col < cols; col++) {
+            for (let row = -2; row < rows; row++) {
+                const sx = col * SQUARE_SIZE + offsetX;
+                const sy = row * SQUARE_SIZE + offsetY;
+
+                const cellKey = `${col},${row}`;
+                const alpha = cellOpacities.get(cellKey);
+                if (alpha) {
+                    ctx.globalAlpha = alpha;
+                    ctx.fillStyle = HOVER_FILL_COLOR;
+                    ctx.fillRect(sx, sy, SQUARE_SIZE, SQUARE_SIZE);
+                    ctx.globalAlpha = 1;
+                }
+
+                ctx.strokeStyle = BORDER_COLOR;
+                ctx.strokeRect(sx, sy, SQUARE_SIZE, SQUARE_SIZE);
+            }
+        }
+
+        const gradient = ctx.createRadialGradient(
+            canvas.width / 2, canvas.height / 2, 0,
+            canvas.width / 2, canvas.height / 2,
+            Math.sqrt(canvas.width ** 2 + canvas.height ** 2) / 2
+        );
+        gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0.35)');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function updateCellOpacities() {
+        const targets = new Map();
+
+        if (hoveredSquare) {
+            targets.set(`${hoveredSquare.x},${hoveredSquare.y}`, 1);
+        }
+
+        if (HOVER_TRAIL_AMOUNT > 0) {
+            trailCells.forEach((cell, i) => {
+                const key = `${cell.x},${cell.y}`;
+                if (!targets.has(key)) {
+                    targets.set(key, (trailCells.length - i) / (trailCells.length + 1));
+                }
+            });
+        }
+
+        targets.forEach((_, key) => {
+            if (!cellOpacities.has(key)) cellOpacities.set(key, 0);
+        });
+
+        cellOpacities.forEach((opacity, key) => {
+            const target = targets.get(key) || 0;
+            const next = opacity + (target - opacity) * 0.15;
+            if (next < 0.005) cellOpacities.delete(key);
+            else cellOpacities.set(key, next);
+        });
+    }
+
+    function updateAnimation() {
+        const effectiveSpeed = Math.max(SPEED, 0.1);
+        const wrap = SQUARE_SIZE;
+
+        switch (DIRECTION) {
+            case 'right':
+                gridOffset.x = (gridOffset.x - effectiveSpeed + wrap) % wrap;
+                break;
+            case 'left':
+                gridOffset.x = (gridOffset.x + effectiveSpeed + wrap) % wrap;
+                break;
+            case 'up':
+                gridOffset.y = (gridOffset.y + effectiveSpeed + wrap) % wrap;
+                break;
+            case 'down':
+                gridOffset.y = (gridOffset.y - effectiveSpeed + wrap) % wrap;
+                break;
+            case 'diagonal':
+                gridOffset.x = (gridOffset.x - effectiveSpeed + wrap) % wrap;
+                gridOffset.y = (gridOffset.y - effectiveSpeed + wrap) % wrap;
+                break;
+            default:
+                break;
+        }
+
+        updateCellOpacities();
+        drawGrid();
+    }
+
+    function handleMouseMove(e) {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        const offsetX = ((gridOffset.x % SQUARE_SIZE) + SQUARE_SIZE) % SQUARE_SIZE;
+        const offsetY = ((gridOffset.y % SQUARE_SIZE) + SQUARE_SIZE) % SQUARE_SIZE;
+
+        const col = Math.floor((mouseX - offsetX) / SQUARE_SIZE);
+        const row = Math.floor((mouseY - offsetY) / SQUARE_SIZE);
+
+        if (!hoveredSquare || hoveredSquare.x !== col || hoveredSquare.y !== row) {
+            if (hoveredSquare && HOVER_TRAIL_AMOUNT > 0) {
+                trailCells.unshift({ ...hoveredSquare });
+                if (trailCells.length > HOVER_TRAIL_AMOUNT) trailCells.length = HOVER_TRAIL_AMOUNT;
+            }
+            hoveredSquare = { x: col, y: row };
+        }
+    }
+
+    function handleMouseLeave() {
+        if (hoveredSquare && HOVER_TRAIL_AMOUNT > 0) {
+            trailCells.unshift({ ...hoveredSquare });
+            if (trailCells.length > HOVER_TRAIL_AMOUNT) trailCells.length = HOVER_TRAIL_AMOUNT;
+        }
+        hoveredSquare = null;
+    }
+
+    resizeCanvas();
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(resizeCanvas, 150);
+    });
+
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
+
+    let wasOpen = false;
+    function loop() {
+        const isOpen = ppPage.classList.contains('open');
+        if (!isOpen) {
+            wasOpen = false;
+            requestAnimationFrame(loop);
+            return;
+        }
+        if (!wasOpen) {
+            // El hero pudo cambiar de tamaño mientras la página estaba cerrada
+            resizeCanvas();
+            wasOpen = true;
+        }
+        updateAnimation();
+        requestAnimationFrame(loop);
+    }
+
+    requestAnimationFrame(loop);
+})();
+
+
 // ── Hero: se desvanece y desplaza al scrollear (estilo apple.com) ──────────
 (function initHeroScrollFade() {
     if (REDUCED_MOTION) return;

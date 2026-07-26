@@ -143,6 +143,92 @@ const PROJECTS = [
             { value: 60, suffix: 'fps', pct: 100, label: 'Animaciones fluidas', label_en: 'Smooth animations' },
         ],
     },
+    // ──────────────────────────────────────────────────────────────────────
+    // Proyectos agregados desde repos de GitHub — TEXTO PLACEHOLDER (lorem
+    // ipsum) hasta que el usuario redacte las descripciones y desafíos reales.
+    // Tags, links e imágenes (placeholder por ahora) sí son datos reales.
+    // ──────────────────────────────────────────────────────────────────────
+    {
+        title: 'Cloomy',
+        title_en: 'Cloomy',
+        description: 'Landing page moderna e interactiva desarrollada como proyecto integrador durante la carrera de Desarrollo Web en Digital House. El proyecto abarca desde la conceptualización de la interfaz hasta la implementación en código, aplicando estándares de la industria para presentar la marca Cloomy mediante una navegación intuitiva, maquetación adaptativa y componentes reactivos.',
+        description_en: 'A modern, interactive landing page built as a capstone project during my Web Development studies at Digital House. It spans from interface conceptualization to full code implementation, applying industry standards to present the Cloomy brand through intuitive navigation, adaptive layouts, and reactive components.',
+        tags: ['React', 'JavaScript', 'Vite', 'Tailwind CSS'],
+        imgSrc: 'images/CapturaCloomy.png',
+        challenges: `
+            <div class="ch-block">
+                <p class="ch-block-title">Desafío Técnico</p>
+                <p>Este proyecto integrador de Digital House consolidó una arquitectura de <strong class="ch-mark">componentes modulares y reutilizables</strong> en React, cada uno con responsabilidad única. Apliqué técnicas avanzadas de Tailwind CSS para lograr un sitio <strong class="ch-mark">100% responsive</strong> con tiempos de carga mínimos, sumando estados locales y microinteracciones que mejoran la experiencia sin sacrificar el rendimiento en mobile.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Filosofía de Diseño</p>
+                <p>La interfaz sigue una jerarquía visual clara pensada en clase, con contraste adecuado y una distribución estratégica que guía la atención hacia los <strong class="ch-mark">llamados a la acción</strong>. El enfoque fue <strong class="ch-mark">mobile-first</strong> desde el día uno, con botones touch-friendly y navegación ágil, sobre una base de código limpio y bien organizado para facilitar su lectura y escalabilidad.</p>
+            </div>`,
+        challenges_en: `
+            <div class="ch-block">
+                <p class="ch-block-title">Technical Challenge</p>
+                <p>This Digital House capstone project consolidated a <strong class="ch-mark">modular, reusable component architecture</strong> in React, each with a single responsibility. I applied advanced Tailwind CSS techniques to achieve a <strong class="ch-mark">fully responsive</strong> site with minimal load times, adding local state and microinteractions that improve the experience without sacrificing mobile performance.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Design Philosophy</p>
+                <p>The interface follows a clear visual hierarchy learned in class, with proper contrast and a strategic layout that guides attention toward the <strong class="ch-mark">calls to action</strong>. The approach was <strong class="ch-mark">mobile-first</strong> from day one, with touch-friendly buttons and fluid navigation, built on clean, well-organized code for easy readability and scalability.</p>
+            </div>`,
+        live: 'https://cloomy-landing.vercel.app',
+    },
+    {
+        title: 'Proyecto Integrador Frontend (Digital House)',
+        title_en: 'Frontend Capstone Project (Digital House)',
+        description: 'Entregable académico desarrollado para la carrera de Desarrollo Web en Digital House. Consiste en la maquetación y maquetación interactiva de una interfaz web creada exclusivamente con tecnologías fundamentales (HTML5, CSS3 y JavaScript ES6+). El proyecto pone a prueba el dominio de los pilares de la web: estructuración semántica, maquetación responsive sin frameworks y manipulación directa del DOM.',
+        description_en: "An academic deliverable built for my Web Development studies at Digital House. It consists of the layout and interactive markup of a web interface built exclusively with core web technologies (HTML5, CSS3, and JavaScript ES6+). The project tests mastery of the web's foundations: semantic structuring, framework-free responsive layout, and direct DOM manipulation.",
+        tags: ['HTML5', 'CSS3', 'JavaScript Vanilla'],
+        imgSrc: 'images/CapturaTestTask.png',
+        challenges: `
+            <div class="ch-block">
+                <p class="ch-block-title">Desafío Técnico</p>
+                <p>Resolví toda la lógica de cliente y el dinamismo de la interfaz con <strong class="ch-mark">JavaScript puro</strong>, gestionando eventos y manipulación del DOM sin frameworks ni librerías externas. El maquetado es <strong class="ch-mark">100% responsive</strong>, combinando Flexbox, CSS Grid y media queries para garantizar estabilidad visual en cualquier pantalla, sobre una arquitectura de archivos limpia y modular que separa estructura, estilos y comportamiento.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Filosofía de Diseño</p>
+                <p>El maquetado usa <strong class="ch-mark">etiquetas semánticas de HTML5</strong> (header, nav, main, section, footer) para una lectura estructurada por lectores de pantalla y navegadores. El enfoque fue <strong class="ch-mark">mobile-first</strong>, con breakpoints prolijos y botones cómodos para interacción táctil, pensado como una demostración sólida de los fundamentos de la web estándar antes de sumar frameworks.</p>
+            </div>`,
+        challenges_en: `
+            <div class="ch-block">
+                <p class="ch-block-title">Technical Challenge</p>
+                <p>I handled all client-side logic and UI interactivity with <strong class="ch-mark">plain JavaScript</strong>, managing events and DOM manipulation without frameworks or external libraries. The layout is <strong class="ch-mark">fully responsive</strong>, combining Flexbox, CSS Grid, and media queries to keep it visually stable on any screen, built on a clean, modular file structure that separates markup, styles, and behavior.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Design Philosophy</p>
+                <p>The markup uses <strong class="ch-mark">semantic HTML5 tags</strong> (header, nav, main, section, footer) for structured reading by screen readers and browsers. The approach was <strong class="ch-mark">mobile-first</strong>, with clean breakpoints and touch-friendly buttons, meant as a solid demonstration of standard web fundamentals before layering on frameworks.</p>
+            </div>`,
+        live: 'https://test-task-juan-cruz-romero.vercel.app',
+    },
+    {
+        title: 'Portfolio Personal',
+        title_en: 'Personal Portfolio',
+        description: 'Este mismo sitio: un portfolio personal construido 100% con HTML, CSS y JavaScript vanilla, sin frameworks ni dependencias. Incluye páginas de caso de estudio individuales para cada proyecto, animaciones y efectos interactivos hechos a medida en JS puro, y soporte completo bilingüe en español e inglés.',
+        description_en: 'This very site: a personal portfolio built 100% with vanilla HTML, CSS, and JavaScript, with no frameworks or dependencies. It includes individual case-study pages for each project, custom interactive animations and effects built in plain JS, and full Spanish/English bilingual support.',
+        tags: ['HTML5', 'CSS3', 'JavaScript Vanilla'],
+        imgSrc: 'images/CapturaPortfolio.png',
+        challenges: `
+            <div class="ch-block">
+                <p class="ch-block-title">Desafío Técnico</p>
+                <p>El mayor desafío fue portar efectos de librerías como React Bits, Aceternity UI y Framer Motion a <strong class="ch-mark">JavaScript vanilla puro</strong>, sin sumar ni una sola dependencia. Eso significó reconstruir animaciones de scroll, partículas en canvas y transiciones tipo GSAP usando solo <strong class="ch-mark">requestAnimationFrame, transiciones CSS y matemática pura</strong> — incluyendo detectar y corregir un bug de feedback loop que causaba temblor en los efectos de scroll.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Filosofía de Diseño</p>
+                <p>Estética oscura con glassmorphism, inspirada en el lenguaje de movimiento de Apple: curvas de easing cuidadas, jerarquía tipográfica clara y microinteracciones en cada sección. Todo el contenido está disponible en <strong class="ch-mark">español e inglés</strong>, y cada efecto respeta <strong class="ch-mark">prefers-reduced-motion</strong> y se adapta a mobile sin perder personalidad.</p>
+            </div>`,
+        challenges_en: `
+            <div class="ch-block">
+                <p class="ch-block-title">Technical Challenge</p>
+                <p>The biggest challenge was porting effects from libraries like React Bits, Aceternity UI, and Framer Motion into <strong class="ch-mark">pure vanilla JavaScript</strong>, without adding a single dependency. That meant rebuilding scroll animations, canvas particle effects, and GSAP-style transitions using only <strong class="ch-mark">requestAnimationFrame, CSS transitions, and plain math</strong> — including tracking down and fixing a feedback-loop bug that caused jitter in the scroll effects.</p>
+            </div>
+            <div class="ch-block">
+                <p class="ch-block-title">Design Philosophy</p>
+                <p>A dark glassmorphism aesthetic inspired by Apple's motion language: carefully tuned easing curves, clear typographic hierarchy, and microinteractions throughout. The whole site is available in <strong class="ch-mark">Spanish and English</strong>, and every effect respects <strong class="ch-mark">prefers-reduced-motion</strong> and adapts gracefully to mobile without losing personality.</p>
+            </div>`,
+        live: 'https://github.com/johon7nt/PorfolioJohnDev',
+    },
 ];
 
 // ── Navbar ──────────────────────────────────────────────────────────────────
@@ -600,6 +686,93 @@ function requestCloseProject() {
         history.replaceState({ proj: idx }, '', location.hash);
         window.openProject(idx, { fromHistory: true, instant: true });
     }
+})();
+
+
+// ── All Projects (overlay con todos los proyectos) ──────────────────────────
+(function initAllProjects() {
+    const apPage   = document.getElementById('all-projects-page');
+    const apScroll = document.getElementById('ap-scroll');
+    const apGrid   = document.getElementById('ap-grid');
+    const apBack   = document.getElementById('ap-back');
+    const openBtn  = document.getElementById('all-projects-btn');
+
+    if (!apPage || !apGrid || !openBtn) return;
+
+    let apPreviouslyFocused = null;
+
+    function renderGrid() {
+        apGrid.innerHTML = PROJECTS.map((project, i) => `
+            <article class="project-card glass-card"
+                     role="button" tabindex="0"
+                     aria-label="Ver detalles: ${localized(project, 'title')}"
+                     data-project="${i}">
+                <div class="project-img-wrapper">
+                    <div class="project-img" aria-hidden="true">
+                        <img src="${project.imgSrc}" alt="${localized(project, 'title')}" loading="lazy">
+                        <div class="project-overlay">
+                            <span data-i18n="proj-overlay">Ver proyecto →</span>
+                        </div>
+                        <span class="project-badge"><span>Online</span></span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>${localized(project, 'title')}</h3>
+                    <p>${localized(project, 'description')}</p>
+                    <div class="tech-tags">${project.tags.map((t) => `<span>${t}</span>`).join('')}</div>
+                </div>
+            </article>
+        `).join('');
+
+        apGrid.querySelectorAll('.project-card').forEach((card) => {
+            const idx = Number(card.dataset.project);
+            const go = () => {
+                closeAllProjects();
+                window.openProject(idx);
+            };
+            card.addEventListener('click', go);
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    go();
+                }
+            });
+        });
+    }
+
+    function openAllProjects() {
+        renderGrid();
+        apPreviouslyFocused = document.activeElement;
+        apPage.removeAttribute('aria-hidden');
+        apPage.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        apScroll.scrollTop = 0;
+        requestAnimationFrame(() => apBack.focus());
+    }
+
+    function closeAllProjects() {
+        if (!apPage.classList.contains('open')) return;
+        apPage.classList.remove('open');
+        apPage.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (apPreviouslyFocused && document.contains(apPreviouslyFocused)) {
+            apPreviouslyFocused.focus();
+        }
+    }
+
+    openBtn.addEventListener('click', openAllProjects);
+    apBack.addEventListener('click', closeAllProjects);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && apPage.classList.contains('open')) {
+            closeAllProjects();
+        }
+    });
+
+    // Si cambia el idioma con la grilla ya armada, se reconstruye
+    window.refreshAllProjectsGrid = () => {
+        if (apPage.classList.contains('open')) renderGrid();
+    };
 })();
 
 

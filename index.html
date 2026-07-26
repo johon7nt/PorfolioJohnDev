@@ -458,7 +458,7 @@
                                     <div class="project-overlay">
                                         <span data-i18n="proj-overlay">Ver proyecto →</span>
                                     </div>
-                                    <span class="project-badge"><span data-i18n="proj0-metric">95/100 PageSpeed</span></span>
+                                    <span class="project-badge"><span data-i18n="proj0-metric">Online</span></span>
                                 </div>
                             </div>
                             <div class="project-info">
@@ -484,7 +484,7 @@
                                     <div class="project-overlay">
                                         <span data-i18n="proj-overlay">Ver proyecto →</span>
                                     </div>
-                                    <span class="project-badge"><span data-i18n="proj1-metric">+300 entradas vendidas</span></span>
+                                    <span class="project-badge"><span data-i18n="proj1-metric">Online</span></span>
                                 </div>
                             </div>
                             <div class="project-info">
@@ -510,7 +510,7 @@
                                     <div class="project-overlay">
                                         <span data-i18n="proj-overlay">Ver proyecto →</span>
                                     </div>
-                                    <span class="project-badge"><span data-i18n="proj2-metric">+35% conversión</span></span>
+                                    <span class="project-badge"><span data-i18n="proj2-metric">Online</span></span>
                                 </div>
                             </div>
                             <div class="project-info">
@@ -536,7 +536,7 @@
                                     <div class="project-overlay">
                                         <span data-i18n="proj-overlay">Ver proyecto →</span>
                                     </div>
-                                    <span class="project-badge"><span data-i18n="proj3-metric">98/100 Lighthouse</span></span>
+                                    <span class="project-badge"><span data-i18n="proj3-metric">Online</span></span>
                                 </div>
                             </div>
                             <div class="project-info">
@@ -551,6 +551,15 @@
 
                     <div class="scroll-stack-end" id="proj-stack-end" aria-hidden="true"></div>
                 </div>
+            </div>
+
+            <div class="proj-more">
+                <button class="btn btn-glass" id="all-projects-btn">
+                    <span data-i18n="proj-more-btn">Ver más proyectos</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -807,6 +816,10 @@
          aria-labelledby="pp-title"
          aria-hidden="true">
 
+        <!-- Fondo: grilla animada (port vanilla de React Bits) -->
+        <canvas class="pp-shapegrid" id="pp-shapegrid" aria-hidden="true"></canvas>
+        <div class="pp-shapegrid-tint" aria-hidden="true"></div>
+
         <!-- Topbar translúcida (estilo Apple: aparece al scrollear) -->
         <div class="proj-topbar" id="pp-topbar">
             <button class="pp-back" id="pp-back">
@@ -872,6 +885,36 @@
                         <strong id="pp-next-title"></strong>
                     </button>
                 </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================
+         ALL PROJECTS (overlay a pantalla completa)
+    ================================= -->
+    <div class="all-projects-page" id="all-projects-page"
+         role="dialog" aria-modal="true"
+         aria-labelledby="ap-title"
+         aria-hidden="true">
+
+        <div class="proj-topbar" id="ap-topbar">
+            <button class="pp-back" id="ap-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+                <span data-i18n="pp-back">Volver</span>
+            </button>
+        </div>
+
+        <div class="all-projects-scroll" id="ap-scroll">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag" data-i18n="proj-tag">Portfolio</span>
+                    <h2 id="ap-title" class="section-title" data-i18n="ap-title">Todos los Proyectos</h2>
+                    <p class="section-subtitle" data-i18n="ap-subtitle">Todos los trabajos que forman parte de mi portfolio</p>
+                </div>
+
+                <div class="ap-grid" id="ap-grid"></div>
             </div>
         </div>
     </div>

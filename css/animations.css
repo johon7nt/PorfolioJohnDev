@@ -264,5 +264,7 @@ body.loaded .animate-fade-left {
 
     .card-glare { display: none !important; }
 
+    .pp-shapegrid { display: none !important; }
+
     .reveal { filter: none; }
 }
